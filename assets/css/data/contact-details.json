@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "organization": "ManO CreationS",
+  "website": "https://www.manocreations.com/",
+  "contact_page": "https://www.manocreations.com/contact-us.html",
+  "description": "Contact information for design and development enquiries.",
+  "contact": {
+    "call": {"number_e164": "+918124799703", "display": "+91 81247 99703", "url": "tel:+918124799703"},
+    "sms": {"number_e164": "+918124799703", "display": "+91 81247 99703", "url": "sms:+918124799703"},
+    "whatsapp": {"number_e164": "+919080354580", "display": "+91 90803 54580", "url": "https://wa.me/919080354580"},
+    "email": {"address": "ceo@manocreations.com", "url": "mailto:ceo@manocreations.com"}
+  },
+  "social_profiles": {
+    "instagram": "https://www.instagram.com/manocreations.in/",
+    "facebook": "https://www.facebook.com/manoze13/",
+    "youtube": "https://www.youtube.com/@ManO_CreationS"
+  },
+  "maps": "https://share.google/pQgkzyVIKSjJNRXF0",
+  "note": "The telephone, WhatsApp, email, and social profile links were provided by the site owner. No physical address, hours, or response times have been specified."
+}
