@@ -1,0 +1,285 @@
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg-color: #f8f9fa;
+            --text-color: #1a1a1a;
+            --accent-red: #cc0000;
+        }
+
+        html, body { height: 100%; }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: stretch;
+        }
+
+        .page {
+            width: 100%;
+            min-height: 100vh;
+            display: grid;
+            grid-template-rows: 1fr auto;
+            padding: 40px 48px 32px;
+            gap: 32px;
+        }
+
+        /* ── TOP ROW ── */
+        .top-row {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 48px;
+            align-items: start;
+        }
+
+        /* LEFT: image + name */
+        .founder-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .hint-text {
+            font-size: 10px;
+            color: #bbb;
+            text-align: center;
+        }
+
+        .image-container {
+            position: relative;
+            width: 208px;
+            height: 208px;
+            border-radius: 50%;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            background: #eee;
+            border: 4px solid #fff;
+            transition: transform 0.3s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .image-container:hover,
+        .image-container.revealed {
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(204,0,0,0.2);
+        }
+
+        .image-container img {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: opacity 0.5s cubic-bezier(0.4,0,0.2,1);
+        }
+
+        .vector-img { z-index: 2; opacity: 1; }
+        .real-img   { z-index: 1; opacity: 0; }
+
+        .image-container:hover .vector-img,
+        .image-container.revealed .vector-img { opacity: 0; }
+        .image-container:hover .real-img,
+        .image-container.revealed .real-img   { opacity: 1; }
+
+        .brand-tag {
+            font-size: 13px;
+            color: var(--accent-red);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        .name {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--text-color);
+            letter-spacing: -0.5px;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        /* RIGHT: story carousel */
+        .story-block {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            padding-top: 8px;
+        }
+
+        .carousel-viewport {
+            overflow: hidden;
+            transition: height 0.55s cubic-bezier(0.4,0,0.2,1);
+        }
+
+        .carousel-track {
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.55s cubic-bezier(0.4,0,0.2,1);
+            will-change: transform;
+        }
+
+        .carousel-slide {
+            font-size: 15.5px;
+            color: #555;
+            line-height: 1.85;
+            text-align: justify;
+            flex-shrink: 0;
+            width: 100%;
+            padding-bottom: 4px;
+        }
+
+        .carousel-controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .carousel-dots {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #ddd;
+            transition: background 0.3s, width 0.3s;
+            cursor: pointer;
+            border: none;
+            padding: 0;
+        }
+
+        .dot.active {
+            background: var(--accent-red);
+            width: 18px;
+            border-radius: 4px;
+        }
+
+        .readmore-btn {
+            background: none;
+            border: none;
+            color: var(--accent-red);
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            padding: 0;
+            font-family: inherit;
+            letter-spacing: 0.3px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: opacity 0.2s, transform 0.2s;
+        }
+
+        .readmore-btn:hover { opacity: 0.7; transform: translateX(2px); }
+        .readmore-btn:disabled { opacity: 0.25; cursor: default; transform: none; }
+
+        /* ── BOTTOM ROW: details in one row ── */
+        .details-row {
+            display: flex;
+            align-items: stretch;
+            gap: 0;
+            border-top: 1px solid #e5e5e5;
+            padding-top: 24px;
+        }
+
+        .detail-item {
+            flex: 1;
+            padding: 0 24px;
+            border-right: 1px solid #e8e8e8;
+        }
+
+        .detail-item:first-child { padding-left: 0; }
+        .detail-item:last-child  { border-right: none; }
+
+        .detail-label {
+            display: block;
+            font-size: 10px;
+            color: #aaa;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            margin-bottom: 5px;
+        }
+
+        .detail-value {
+            font-size: 14px;
+            font-weight: 700;
+            color: #222;
+        }
+
+        /* DESKTOP: increase all font sizes by 50% */
+        @media (min-width: 681px) {
+            .hint-text      { font-size: 15px; }
+            .brand-tag      { font-size: 19.5px; }
+            .name           { font-size: 30px; }
+            .carousel-slide { font-size: 23.25px; }
+            .readmore-btn   { font-size: 19.5px; }
+            .detail-label   { font-size: 12px; }
+            .detail-value   { font-size: 15px; }
+        }
+
+        /* MOBILE */
+        @media (max-width: 680px) {
+            .page { padding: 28px 20px 28px; gap: 28px; }
+
+            .top-row {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+
+            /* Stack image, name, brand vertically and center */
+            .founder-block {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 14px;
+            }
+
+            .hint-text { display: none; }
+
+            /* Keep same size as desktop */
+            .image-container {
+                width: 208px;
+                height: 208px;
+                flex-shrink: 0;
+            }
+
+            .brand-tag,
+            .name { text-align: center; }
+
+            .carousel-slide { text-align: left; font-size: 15px; }
+
+            .details-row { flex-wrap: wrap; gap: 16px; }
+            .detail-item { flex: 1 1 40%; border-right: none; padding: 0; }
+
+            /* Hide the continue reading button on mobile */
+            .readmore-btn { display: none; }
+
+            /* Show swipe hint on mobile */
+            .swipe-hint {
+                display: flex !important;
+            }
+        }
+
+        /* Swipe hint — hidden on desktop, shown on mobile via above rule */
+        .swipe-hint {
+            display: none;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            color: #bbb;
+            font-style: italic;
+            user-select: none;
+        }
+
+        .swipe-hint svg {
+            flex-shrink: 0;
+            opacity: 0.5;
+        }
+    

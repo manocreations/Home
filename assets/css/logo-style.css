@@ -1,0 +1,160 @@
+
+:root { color-scheme: dark; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #0d0d0d;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.container {
+  max-width: 640px;
+  width: calc(100vw - 32px);
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 { font-size: 28px; margin-bottom: 8px; color: #f9fafb; }
+p.subtitle { color: #9ca3af; margin-bottom: 30px; }
+
+@property --a { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+
+.card { position: relative; border-radius: 24px; cursor: pointer; }
+
+.card::before, .card::after {
+  content: '';
+  position: absolute;
+  border-radius: 25px;
+  background: conic-gradient(
+    from var(--a),
+    #4285f4 0deg, #4285f4 22deg,
+    #7c4dff 40deg, #7c4dff 90deg,
+    #34a853 108deg, #34a853 126deg,
+    #fbbc05 144deg, #fbbc05 162deg,
+    #ea4335 180deg, #ea4335 198deg,
+    transparent 216deg, transparent 360deg
+  );
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.card.animating::before,
+.card.animating::after {
+  animation: spin-ring-fade 1.8s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+
+.card::before { inset: -1px; }
+.card::after { inset: -6px; border-radius: 30px; filter: blur(15px); }
+
+@keyframes spin-ring-fade {
+  0% { --a: 90deg; opacity: 0; }
+  15% { opacity: 1; }
+  60% { opacity: 1; }
+  100% { --a: 450deg; opacity: 0; }
+}
+
+.card-inner {
+  position: relative;
+  z-index: 1;
+  background: #161618;
+  border-radius: 23px;
+  margin: 1px;
+  overflow: hidden;
+}
+
+.carousel { overflow: hidden; }
+.slides { display: flex; transition: transform 0.6s cubic-bezier(0.4,0,0.2,1); }
+.slide { min-width: 100%; padding: 40px 20px; box-sizing: border-box; }
+.image-container { height: 120px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+.slide img { max-width: 160px; max-height: 100%; object-fit: contain; }
+.slide h2 { margin: 0 0 10px 0; font-size: 22px; color: #f9fafb; }
+.slide p { color: #9ca3af; font-size: 15px; margin-bottom: 15px; height: 40px; }
+.tag { display: inline-block; padding: 6px 16px; border-radius: 20px; background: #1e1b4b; color: #a5b4fc; font-size: 13px; font-weight: 600; }
+
+.nav-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: rgba(30,30,32,0.95); border: none; width: 44px; height: 44px;
+  cursor: pointer; font-size: 18px; border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4); z-index: 10;
+  display: flex; align-items: center; justify-content: center; color: #f9fafb;
+}
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.dots { margin: 16px 0 0; }
+.dot { height: 8px; width: 8px; margin: 0 4px; display: inline-block; background: #374151; border-radius: 50%; cursor: pointer; }
+.dot.active { background: #4f46e5; width: 24px; border-radius: 4px; }
+
+.input-row { padding: 14px 20px 0; }
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.business-input {
+  width: 100%;
+  background: #1f1f23;
+  border: 1px solid #2e2e35;
+  border-radius: 10px;
+  padding: 12px 16px;
+  padding-right: 150px;
+  font-size: 15px;
+  color: #f9fafb;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.business-input::placeholder { color: #6b7280; }
+.business-input:focus { border-color: #4f46e5; }
+
+.pause-badge {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #1e1b4b;
+  color: #a5b4fc;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.pause-badge.visible { opacity: 1; }
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px 20px;
+  border-top: 1px solid #2a2a2e;
+  margin-top: 14px;
+}
+
+.text-button {
+  background: transparent; border: none; cursor: pointer;
+  color: #9aa0a6; transition: color 0.2s;
+  display: flex; align-items: center; gap: 6px; font-size: 14px;
+}
+.text-button:hover { color: white; }
+
+.primary-button {
+  background: #4285f4; border: none; border-radius: 50%;
+  height: 48px; width: 48px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.2s, opacity 0.2s;
+}
+.primary-button:hover { transform: scale(1.1); }
+.primary-button:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+.material-symbols-outlined { font-size: 24px; }
+
