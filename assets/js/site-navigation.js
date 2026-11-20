@@ -1,0 +1,1 @@
+document.addEventListener('DOMContentLoaded',()=>{if(document.querySelector('.mano-back-home'))return;const a=document.createElement('a');a.className='mano-back-home';a.href='index.html';a.setAttribute('aria-label','Return to ManO CreationS homepage');a.textContent='← ManO Home';document.body.appendChild(a);});

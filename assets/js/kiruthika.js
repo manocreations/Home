@@ -1,0 +1,1 @@
+(()=>{'use strict';document.querySelectorAll('[data-ki-filter]').forEach(b=>b.addEventListener('click',()=>{const cat=b.dataset.kiFilter;document.querySelectorAll('[data-ki-filter]').forEach(x=>x.classList.toggle('active',x===b));document.querySelectorAll('[data-ki-cat]').forEach(c=>{c.hidden=cat!=='all'&&c.dataset.kiCat!==cat})}))})();

@@ -1,0 +1,4 @@
+
+const checkbox=document.getElementById('acceptTerms');const btn=document.getElementById('submitBtn');checkbox.addEventListener('change',()=>{btn.disabled=!checkbox.checked});btn.addEventListener('click',()=>{if(checkbox.checked){window.location.href='lovepermit/index.html'}});
+let slideIndex=0;const slides=document.querySelectorAll('.slide');const slider=document.getElementById('slider');function show(n){slides[slideIndex].style.display='none';slideIndex=(slideIndex+n+slides.length)%slides.length;slides[slideIndex].style.display='block'}function auto(){show(1)}slides[0].style.display='block';let interval=setInterval(auto,5000);function manual(n){clearInterval(interval);show(n);interval=setInterval(auto,5000)}let startX=0;slider.addEventListener('touchstart',e=>startX=e.touches[0].clientX);slider.addEventListener('touchend',e=>{let diff=startX-e.changedTouches[0].clientX;if(diff>50)manual(1);else if(diff< -50)manual(-1)});
+

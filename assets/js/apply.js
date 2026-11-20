@@ -1,0 +1,1 @@
+(()=>{'use strict';const check=document.getElementById('accept-terms'),link=document.getElementById('apply-link');check.addEventListener('change',()=>{link.classList.toggle('disabled-link',!check.checked);link.setAttribute('aria-disabled',String(!check.checked));link.tabIndex=check.checked?0:-1});link.addEventListener('click',e=>{if(!check.checked)e.preventDefault()})})();
