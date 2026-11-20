@@ -1,0 +1,99 @@
+
+    document.getElementById('imgToggle').addEventListener('click', function () {
+        this.classList.toggle('revealed');
+    });
+
+    const track    = document.getElementById('track');
+    const viewport = document.getElementById('viewport');
+    const nextBtn  = document.getElementById('nextBtn');
+    const dotsEl   = document.getElementById('dots');
+    const swipeHint = document.getElementById('swipeHint');
+    const slides   = Array.from(track.querySelectorAll('.carousel-slide'));
+    const total    = slides.length;
+    let current    = 0;
+
+    slides.forEach(function (_, i) {
+        const d = document.createElement('button');
+        d.className = 'dot' + (i === 0 ? ' active' : '');
+        d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+        d.addEventListener('click', function () { goTo(i); });
+        dotsEl.appendChild(d);
+    });
+
+    function getOffsets() {
+        var offsets = [], top = 0;
+        slides.forEach(function (s) { offsets.push(top); top += s.scrollHeight; });
+        return offsets;
+    }
+
+    function goTo(index) {
+        current = index;
+        var offsets = getOffsets();
+        viewport.style.height = slides[current].scrollHeight + 'px';
+        track.style.transform = 'translateY(-' + offsets[current] + 'px)';
+        Array.from(dotsEl.querySelectorAll('.dot')).forEach(function (d, i) {
+            d.classList.toggle('active', i === current);
+        });
+
+        var isLast = current >= total - 1;
+
+        // Desktop button state
+        if (isLast) {
+            nextBtn.disabled = true;
+            nextBtn.textContent = "That's the full story ✓";
+        } else {
+            nextBtn.disabled = false;
+            nextBtn.innerHTML = 'Continue reading ›';
+        }
+
+        // Mobile swipe hint state
+        if (swipeHint) {
+            if (isLast) {
+                swipeHint.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> That was my kutty story';
+            } else {
+                swipeHint.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M9 18l-6-6 6-6"/></svg> Swipe to Continue.,';
+            }
+        }
+    }
+
+    function nextSlide() { if (current < total - 1) goTo(current + 1); }
+    function prevSlide() { if (current > 0) goTo(current - 1); }
+
+    // ── Touch / swipe support ──
+    var touchStartX = 0;
+    var touchStartY = 0;
+    var swipeThreshold = 40;   // min horizontal px to count as swipe
+    var directionLocked = null; // 'h' | 'v' — lock axis after first move
+
+    viewport.addEventListener('touchstart', function (e) {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        directionLocked = null;
+    }, { passive: true });
+
+    viewport.addEventListener('touchmove', function (e) {
+        if (!directionLocked) {
+            var dx = Math.abs(e.touches[0].clientX - touchStartX);
+            var dy = Math.abs(e.touches[0].clientY - touchStartY);
+            directionLocked = dx > dy ? 'h' : 'v';
+        }
+        // Prevent page scroll only when swiping horizontally
+        if (directionLocked === 'h') {
+            e.preventDefault();
+        }
+    }, { passive: false });
+
+    viewport.addEventListener('touchend', function (e) {
+        if (directionLocked !== 'h') return;
+        var deltaX = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(deltaX) < swipeThreshold) return;
+        if (deltaX < 0) {
+            nextSlide(); // swipe left → next
+        } else {
+            prevSlide(); // swipe right → prev
+        }
+    }, { passive: true });
+
+    window.addEventListener('load', function () { goTo(0); });
+    window.addEventListener('resize', function () { goTo(current); });
+
