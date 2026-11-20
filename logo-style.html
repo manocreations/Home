@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logo Style Selector | ManO CreationS</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/logo-style.css">
+
+<meta name="description" content="Choose from seven logo styles and share your business name with ManO CreationS.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://www.manocreations.com/logo-style.html">
+<link rel="stylesheet" href="assets/css/site-navigation.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>What type of logo do you need?</h1>
+  <p class="subtitle">Choose a style that fits your brand</p>
+
+  <div class="card" id="card">
+    <div class="card-inner">
+
+      <div class="carousel" style="position:relative;">
+        <div class="slides" id="slides">
+          <div class="slide"><div class="image-container"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google"></div><h2>Wordmark</h2><p>A typography-based logo focusing on a business name.</p><span class="tag">Simple • Memorable</span></div>
+          <div class="slide"><div class="image-container"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM"></div><h2>Letter Mark</h2><p>Monogram logos created from brand initials.</p><span class="tag">Minimal • Professional</span></div>
+          <div class="slide"><div class="image-container"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple"></div><h2>Pictorial Mark</h2><p>An icon or graphic-based brand logo.</p><span class="tag">Visual • Iconic</span></div>
+          <div class="slide"><div class="image-container"><img src="https://static.vecteezy.com/system/resources/previews/020/927/378/non_2x/toyota-brand-logo-car-symbol-with-name-black-design-japan-automobile-illustration-free-vector.jpg"></div><h2>Abstract Mark</h2><p>Geometric shapes that represent your brand idea.</p><span class="tag">Modern • Unique</span></div>
+          <div class="slide"><div class="image-container"><img src="https://www.pngall.com/wp-content/uploads/13/KFC-Logo-PNG-Photo.png"></div><h2>Mascot Logo</h2><p>Involves an illustrated character.</p><span class="tag">Fun • Friendly</span></div>
+          <div class="slide"><div class="image-container"><img src="https://static.vecteezy.com/system/resources/previews/022/636/386/non_2x/starbucks-logo-starbucks-icon-transparent-free-png.png"></div><h2>Emblem Logo</h2><p>Font inside a symbol or badge.</p><span class="tag">Classic • Authority</span></div>
+          <div class="slide"><div class="image-container"><img src="https://www.hatchwise.com/wp-content/uploads/2022/09/image-9-1013x1024.png"></div><h2>Combination Mark</h2><p>Combined wordmark and icon.</p><span class="tag">Flexible • Balanced</span></div>
+        </div>
+        <button class="nav-btn prev" onclick="manualNav(-1)">❮</button>
+        <button class="nav-btn next" onclick="manualNav(1)">❯</button>
+      </div>
+
+      <div class="dots" id="dots"></div>
+
+      <div class="input-row">
+        <div class="input-wrapper">
+          <input type="text" id="businessName" class="business-input" placeholder="Business Name Here" />
+          <span class="pause-badge" id="pauseBadge"></span>
+        </div>
+      </div>
+
+      <div class="bottom">
+        <button class="text-button"
+          onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSeWHQlF2KWDj6_1wrY1_GAuv1iWCQxiCtKxSpwlNmzltStnXw/viewform', '_blank')">
+          <span class="material-symbols-outlined">photo</span>
+          <span>Upload Existing Logo</span>
+        </button>
+
+        <button type="button" class="primary-button" id="sendBtn" onclick="sendToWhatsApp()" disabled>
+          <span class="material-symbols-outlined" style="color: white; font-weight: bold;">arrow_upward</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/logo-style.js" defer></script>
+<script src="assets/js/site-navigation.js" defer></script>
+</body>
+</html>

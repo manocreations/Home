@@ -1,0 +1,68 @@
+{
+  "name": "ManO CreationS",
+  "website": "https://www.manocreations.com/",
+  "established": 2016,
+  "type": "creative design studio",
+  "services": [
+    "Logo design",
+    "Brand identity",
+    "Digital marketing design",
+    "Packaging design",
+    "Business stationery"
+  ],
+  "contact_email": "ceo@manocreations.com",
+  "pages": [
+    {
+      "title": "Design Services | ManO CreationS",
+      "url": "/services.html"
+    },
+    {
+      "title": "Portfolio | ManO CreationS",
+      "url": "/portfolio.html"
+    },
+    {
+      "title": "Design Pricing | ManO CreationS",
+      "url": "/pricing.html"
+    },
+    {
+      "title": "About Us | ManO CreationS",
+      "url": "/about-us.html"
+    },
+    {
+      "title": "Founder | ManO CreationS",
+      "url": "/about-founder.html"
+    },
+    {
+      "title": "Timeline | ManO CreationS",
+      "url": "/timeline.html"
+    },
+    {
+      "title": "Logo Style Selector | ManO CreationS",
+      "url": "/logo-style.html"
+    },
+    {
+      "title": "Love Permit Card | ManO CreationS",
+      "url": "/love-permit-card.html"
+    },
+    {
+      "title": "Apply for Love Permit Card | ManO CreationS",
+      "url": "/love-permit-apply.html"
+    },
+    {
+      "title": "Love Permit Card Terms | ManO CreationS",
+      "url": "/terms.html"
+    },
+    {
+      "title": "Privacy Policy | ManO CreationS",
+      "url": "/privacy-policy.html"
+    },
+    {
+      "title": "Contact Us | ManO CreationS",
+      "url": "/contact-us.html"
+    },
+    {
+      "title": "Kiruthika Industries | Industry Outlet Coimbatore",
+      "url": "/kiruthika-industries.html"
+    }
+  ]
+}

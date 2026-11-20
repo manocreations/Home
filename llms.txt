@@ -1,0 +1,23 @@
+# ManO CreationS
+
+> ManO CreationS is a creative design studio established in 2016. Official website: https://www.manocreations.com/
+
+## Core pages
+- [Home](https://www.manocreations.com/): Main studio overview and navigation
+- [Services](https://www.manocreations.com/services.html): Creative design offerings
+- [Pricing](https://www.manocreations.com/pricing.html): Starting prices and packages
+- [Portfolio](https://www.manocreations.com/portfolio.html): Studio work showcase
+- [Logo Style Selector](https://www.manocreations.com/logo-style.html): Seven logo types and enquiry workflow
+- [About](https://www.manocreations.com/about-us.html): Studio story
+- [Founder](https://www.manocreations.com/about-founder.html): Founder biography
+- [Timeline](https://www.manocreations.com/timeline.html): Milestones from 2016
+- [Contact](https://www.manocreations.com/contact-us.html): Contact channels
+
+## Other offerings
+- [Love Permit Card](https://www.manocreations.com/love-permit-card.html): Personalized gift product
+- [Kiruthika Industries](https://www.manocreations.com/kiruthika-industries.html): Associated industrial outlet in Coimbatore
+
+## Notes
+- Publicly published pages are the authoritative information. Prices and availability may change; confirm with the studio.
+- Website paths in this file are for this static HTML deployment; adjust if the production site uses different routes.
+- This file is a discovery aid, not a guarantee that any AI service will crawl or cite the site.

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /love-permit-payment.html
+Sitemap: https://www.manocreations.com/sitemap.xml

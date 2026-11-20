@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | ManO CreationS</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/about-us.css">
+<script src="assets/js/about-us.js" defer></script>
+
+<meta name="description" content="Discover the story of ManO CreationS, a creative design studio established in 2016.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://www.manocreations.com/about-us.html">
+<link rel="stylesheet" href="assets/css/site-navigation.css">
+</head>
+<body>
+
+<section class="hero">
+  <div>
+    <div class="ai-badge" id="badgeState">
+      <svg viewBox="0 0 24 24"><path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z"/></svg>
+      ManO CreationS
+    </div>
+    <div class="wrapper">
+      <div class="hero-sub">
+        <p>DESIGNING SINCE 2016</p>
+        <p>Every pixel has a purpose. Every design has a story.</p>
+      </div>
+      <button class="hero-btn" onclick="revealStory()">
+        <svg class="hero-btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="btnGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#8ab4f8"/>
+              <stop offset="50%" stop-color="#d480ff"/>
+              <stop offset="100%" stop-color="#ff8a65"/>
+            </linearGradient>
+          </defs>
+          <path d="M12 2C12 2 12.9 7.5 15.8 10C18.7 12.5 22 11 22 11C22 11 16.5 12 13.8 14.8C11.1 17.6 12 22 12 22C12 22 11.1 16.5 8.2 14C5.3 11.5 2 13 2 13C2 13 7.5 11.9 10.2 9.2C12.9 6.5 12 2 12 2Z" fill="url(#btnGrad)"/>
+        </svg>
+        Let me tell our kutty Story
+        <svg class="hero-btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M13 6l6 6-6 6"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="carousel-section fade" id="story-section" style="display:none">
+  <div class="carousel-book">
+    <div class="carousel-progress-bar">
+      <div class="carousel-progress-fill" id="carouselProgress"></div>
+    </div>
+    <div class="carousel-body">
+      <div class="carousel-image-panel">
+        <img id="carouselImg" src="" alt="">
+      </div>
+      <div class="carousel-content-panel" id="carouselContent">
+        <div class="carousel-eyebrow" id="carouselEyebrow"></div>
+        <div class="carousel-title" id="carouselTitle"></div>
+        <div class="carousel-text" id="carouselText"></div>
+        <div id="carouselActionWrap"></div>
+      </div>
+    </div>
+    <div class="carousel-nav">
+      <button class="c-nav-btn" id="cPrev" aria-label="Previous chapter">&#8592;</button>
+      <div class="carousel-nav-center">
+        <div class="carousel-thumb-strip" id="thumbStrip"></div>
+        <div class="carousel-page-label" id="carouselPageLabel"></div>
+        <div class="swipe-hint">&#8592; swipe to navigate &#8594;</div>
+      </div>
+      <button class="c-nav-btn" id="cNext" aria-label="Next chapter">&#8594;</button>
+    </div>
+  </div>
+</section>
+
+<section class="services-section fade" id="services-section" style="display:none">
+  <h2 class="section-heading">What We Do</h2>
+  <div class="services-grid">
+    <div class="service-card">Logo & Brand Identity</div>
+    <div class="service-card">Bill Books & Letterheads</div>
+    <div class="service-card">Visiting Cards & Brochures</div>
+    <div class="service-card">Flyers & Marketing Designs</div>
+    <div class="service-card">Book Cover Design</div>
+    <div class="service-card">Box Packaging Design</div>
+  </div>
+</section>
+
+<footer class="fade" id="footer-section" style="display:none">
+  <h3>Every business deserves a professional identity.</h3>
+  <p>ManO CreationS — <a href="https://www.manocreations.com/timeline" class="flash">FlashBack</a></p>
+  <a href="mailto:ceo@manocreations.com" class="contact-btn">Mail us</a>
+</footer>
+
+<script src="assets/js/about-us.js" defer></script>
+<script src="assets/js/site-navigation.js" defer></script>
+</body>
+</html>
