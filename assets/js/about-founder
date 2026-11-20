@@ -1,33 +1,111 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const portrait = document.getElementById('imgToggle');
-  portrait?.addEventListener('click', () => {const on = portrait.classList.toggle('revealed'); portrait.setAttribute('aria-pressed', String(on));});
-  const viewport = document.getElementById('viewport'), track = document.getElementById('track');
-  const controls = document.getElementById('carouselControls'), dots = document.getElementById('dots'), next = document.getElementById('nextBtn'), hint = document.getElementById('swipeHint');
-  if (!viewport || !track || !controls || !dots || !next) return;
-  const slides = [...track.querySelectorAll('.carousel-slide')]; if (!slides.length) return;
-  let current = 0, startX = 0, startY = 0, locked = null;
-  const buttons = slides.map((slide, i) => {
-    slide.id = 'founder-story-' + (i + 1);
-    const btn = document.createElement('button'); btn.type = 'button'; btn.className = 'dot'; btn.setAttribute('aria-label', 'Read story part ' + (i + 1));
-    btn.setAttribute('aria-controls',slide.id); btn.addEventListener('click', () => goTo(i));dots.appendChild(btn);return btn;
-  });
-  function goTo(i) {
-    current = Math.max(0,Math.min(slides.length - 1,i));
-    const offsets = slides.map(s => s.offsetTop - slides[0].offsetTop);
-    viewport.style.height = slides[current].offsetHeight + 'px';
-    track.style.transform = `translateY(-${offsets[current]}px)`;
-    slides.forEach((slide,j) => {slide.setAttribute('aria-hidden',String(j!==current));slide.inert = j!==current;});
-    buttons.forEach((btn,j)=>{btn.classList.toggle('active',j===current);btn.setAttribute('aria-current',j===current?'step':'false');});
-    next.disabled = current===slides.length-1;
-    next.textContent = next.disabled ? 'That’s the full story ✓' : 'Continue reading ›';
-    if(hint) hint.textContent = next.disabled?'That was my kutty story':'Swipe left to continue';
-  }
-  document.body.classList.add('js-carousel');controls.hidden=false;
-  next.addEventListener('click', () => goTo(current+1));
-  viewport.addEventListener('touchstart', e => {startX=e.touches[0].clientX;startY=e.touches[0].clientY;locked=null;},{passive:true});
-  viewport.addEventListener('touchmove',e=>{const dx=Math.abs(e.touches[0].clientX-startX),dy=Math.abs(e.touches[0].clientY-startY);if(!locked && Math.max(dx,dy)>8)locked=dx>dy?'h':'v';if(locked==='h'&&e.cancelable)e.preventDefault();},{passive:false});
-  viewport.addEventListener('touchend',e=>{if(locked!=='h')return;const dx=e.changedTouches[0].clientX-startX;if(Math.abs(dx)>=40)goTo(current+(dx<0?1:-1));},{passive:true});
-  viewport.addEventListener('keydown', e => {if(e.key==='ArrowRight'){goTo(current+1);e.preventDefault();}else if(e.key==='ArrowLeft'){goTo(current-1);e.preventDefault();}});
-  window.addEventListener('resize', () => goTo(current));
-  goTo(0);
-});
+<!doctype html>
+<html lang="en-IN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Manoj Thiruchelvam | Founder of ManO CreationS</title>
+<meta name="description" content="Meet Manoj Thiruchelvam, founder and creative director of ManO CreationS. Discover his journey from mechanical engineering to branding and digital design.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://www.manocreations.com/about-founder.html">
+<meta property="og:type" content="profile"><meta property="og:site_name" content="ManO CreationS"><meta property="og:title" content="Meet Manoj Thiruchelvam | ManO CreationS"><meta property="og:description" content="The founder's journey from mechanical engineering and factory-floor work to creative design."><meta property="og:url" content="https://www.manocreations.com/about-founder.html">
+<meta property="og:image" content="https://lh3.googleusercontent.com/d/1vm7Ypi62JX3PJ99qzvqLugRFTzuPeLJ3"><meta property="og:image:alt" content="Portrait of Manoj Thiruchelvam">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Manoj Thiruchelvam | ManO CreationS"><meta name="twitter:description" content="Learn about the founder of ManO CreationS."><meta name="twitter:image" content="https://lh3.googleusercontent.com/d/1vm7Ypi62JX3PJ99qzvqLugRFTzuPeLJ3">
+<link rel="stylesheet" href="assets/css/about-founder.css">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.manocreations.com/#organization",
+      "name": "ManO CreationS",
+      "url": "https://www.manocreations.com/",
+      "description": "Creative design studio founded in 2016, offering logo design, brand identity, packaging design, marketing design, catalogues and business stationery.",
+      "email": "ceo@manocreations.com",
+      "telephone": "+91-81247-99703",
+      "founder": {
+        "@id": "https://www.manocreations.com/about-founder.html#manoj"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "India"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.manocreations.com/#website",
+      "url": "https://www.manocreations.com/",
+      "name": "ManO CreationS",
+      "publisher": {
+        "@id": "https://www.manocreations.com/#organization"
+      },
+      "inLanguage": "en-IN"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.manocreations.com/about-founder.html#manoj",
+      "name": "Manoj Thiruchelvam",
+      "jobTitle": "Founder and Creative Director",
+      "worksFor": {
+        "@id": "https://www.manocreations.com/#organization"
+      },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Anna University"
+      },
+      "description": "Founder of ManO CreationS, a creative design studio launched in 2016. Mechanical engineering graduate with experience across industrial workplaces in Tamil Nadu.",
+      "url": "https://www.manocreations.com/about-founder.html"
+    },
+    {
+      "@type": "AboutPage",
+      "@id": "https://www.manocreations.com/about-founder.html#webpage",
+      "url": "https://www.manocreations.com/about-founder.html",
+      "name": "Manoj Thiruchelvam | Founder of ManO CreationS",
+      "description": "Meet Manoj Thiruchelvam, founder and creative director of ManO CreationS, and learn about his journey from mechanical engineering to creative design.",
+      "inLanguage": "en-IN",
+      "about": {
+        "@id": "https://www.manocreations.com/about-founder.html#manoj"
+      },
+      "isPartOf": {
+        "@id": "https://www.manocreations.com/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://www.manocreations.com/about-founder.html#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.manocreations.com/about-founder.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.manocreations.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "About",
+          "item": "https://www.manocreations.com/about-us.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Founder",
+          "item": "https://www.manocreations.com/about-founder.html"
+        }
+      ]
+    }
+  ]
+}</script>
+<script src="assets/js/about-founder.js" defer></script></head>
+<body>
+<div class="page"><header class="site-head" aria-label="Plain page header"></header>
+<main id="main">
+<div class="first-screen">
+<div class="top-row"><header class="founder-block"><button class="image-container" type="button" id="imgToggle" aria-label="Toggle between illustration and portrait" aria-pressed="false"><img src="https://lh3.googleusercontent.com/d/1vm7Ypi62JX3PJ99qzvqLugRFTzuPeLJ3" alt="Portrait of Manoj Thiruchelvam" class="real-img" width="208" height="208" fetchpriority="high"><img src="https://lh3.googleusercontent.com/d/1wjzIWhTbSdlQFoQf_rM5oOCjCG47S_sI" alt="" class="vector-img" width="208" height="208"></button><h1>Manoj Thiruchelvam</h1><p class="brand-tag">Founder &amp; Creative Director · ManO CreationS</p><p class="hint-text">Tap or hover to reveal the portrait.</p></header>
+<article class="story-block" aria-labelledby="story-heading"><h2 id="story-heading" class="story-heading">The story behind ManO CreationS</h2><p class="intro">Manoj Thiruchelvam founded ManO CreationS in 2016. His creative journey brings together engineering, hands-on industrial experience and self-taught design.</p><div id="viewport" class="carousel-viewport"><div id="track" class="carousel-track"><section class="carousel-slide" aria-label="Story part 1 of 4"><h2>An early passion for design</h2><p>An engineering graduate from Anna University, Manoj Thiruchelvam developed an interest in entrepreneurship at a young age. In 10th standard, he began exploring graphic design and meme creation. Through self-learning, experimentation and creative practice, he continued building his design skills.</p></section>
+<section class="carousel-slide" aria-label="Story part 2 of 4"><h2>Founding ManO CreationS</h2><p>In 2016, he started ManO CreationS as his own creative brand. In 2018, he designed a logo for the brand, shaping its visual identity. His approach emphasizes curiosity, independent learning, experimentation and practical experience.</p></section>
+<section class="carousel-slide" aria-label="Story part 3 of 4"><h2>Learning from industrial experience</h2><p>After completing Mechanical Engineering, he worked as a laborer in more than 20 companies across Tamil Nadu, including Lakshmi Machine Works and Propel Industries. Factory-floor work and long shifts provided firsthand lessons in discipline, teamwork, resilience and patience.</p></section>
+<section class="carousel-slide" aria-label="Story part 4 of 4"><h2>Creativity and purpose</h2><p>While working in industry, he continued learning and creating designs outside working hours. Today, as Founder and Creative Director of ManO CreationS, he combines technical experience and creative interests in branding and digital design.</p></section></div></div><div class="carousel-controls" id="carouselControls" hidden><div id="dots" class="carousel-dots" role="group" aria-label="Story slides"></div><span class="swipe-hint" id="swipeHint">Swipe to continue</span><button class="readmore-btn" type="button" id="nextBtn">Continue reading ›</button></div></article></div>
+<section class="details" aria-labelledby="details-heading"><h2 id="details-heading">About the founder</h2><dl class="details-row"><div class="detail-item"><dt>Born</dt><dd><time datetime="1999-11-13">13 Nov 1999</time></dd></div><div class="detail-item"><dt>Based in</dt><dd>Coimbatore, Tamil Nadu, India</dd></div><div class="detail-item"><dt>Hometown</dt><dd>Salem, Tamil Nadu, India</dd></div><div class="detail-item"><dt>Role</dt><dd>Founder &amp; Creative Director</dd></div></dl></section>
+</div>
+<section class="explore"><div class="explore-heading-row"><h2>Explore ManO CreationS</h2><a class="back-home-btn" href="https://www.manocreations.com/" aria-label="Back to ManO CreationS home page">← Back to Home</a></div><p>Discover the studio's <a href="/services.html">creative services</a>, <a href="/portfolio.html">portfolio</a>, <a href="/pricing.html">design pricing</a>, and <a href="/contact-us.html">contact details</a>. Read the <a href="/timeline.html">studio timeline</a> or <a href="/about-us.html">about page</a>.</p></section></main>
+<footer><p>© 2026 ManO CreationS · <a href="/privacy-policy.html">Privacy</a> · <a href="mailto:ceo@manocreations.com">ceo@manocreations.com</a></p></footer></div></body></html>
