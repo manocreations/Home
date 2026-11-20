@@ -3,3 +3,22 @@
 /* Header removed: keep hero balanced at the top of the page. */
 .hero{padding-top:70px}
 @media(max-width:680px){.hero{padding-top:45px}}
+
+/* Standalone back navigation (no header). */
+.home-link-wrap{max-width:1170px;margin:0 auto;padding:26px 24px 0;position:relative;z-index:2}
+.back-home-button{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border:1px solid rgba(196,202,255,.32);border-radius:999px;background:rgba(255,255,255,.075);color:#f8faff;font-size:13px;font-weight:800;transition:background .2s,transform .2s,border-color .2s}
+.back-home-button:hover{background:rgba(164,150,255,.2);border-color:#a99bff;transform:translateX(-3px)}
+.back-home-button span{font-size:19px;line-height:1}
+@media(max-width:680px){.home-link-wrap{padding:20px 20px 0}.hero{padding-top:35px}}
+
+/* Bottom placement for the standalone home navigation. */
+.home-link-wrap{padding:0 24px 30px;text-align:center}
+.back-home-button:hover{transform:translateY(-3px)}
+@media(max-width:680px){.home-link-wrap{padding:0 20px 28px}}
+
+/* Home button centered inside the footer, rather than above it. */
+.site-footer{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:20px}
+.site-footer .footer-left{justify-self:start}
+.site-footer .footer-right{justify-self:end;text-align:right}
+.site-footer .footer-home{justify-self:center;white-space:nowrap}
+@media(max-width:680px){.site-footer{grid-template-columns:1fr;justify-items:center;gap:14px;text-align:center}.site-footer .footer-left,.site-footer .footer-right,.site-footer .footer-home{justify-self:center;text-align:center}.site-footer .footer-home{grid-row:1}}
