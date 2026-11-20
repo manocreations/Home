@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Orders | LovePermit</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="integration.css">
+</head>
+
+<body>
+
+    <div class="ls-shell">
+
+        <nav class="ls-sidebar">
+            <div class="ls-sidebar-logo">
+                <img src="https://i.ibb.co/V0wkkKN4/love-permit.png" alt="LovePermit">
+            </div>
+            <div class="ls-sidebar-links">
+                <a href="home.html" class="ls-sidebar-link"><span class="ls-sidebar-icon">🏠</span>Home</a>
+                <a href="permit.html" class="ls-sidebar-link"><span class="ls-sidebar-icon">📜</span>Permit</a>
+                <a href="orders.html" class="ls-sidebar-link active"><span class="ls-sidebar-icon">🧾</span>Orders</a>
+                <a href="profile.html" class="ls-sidebar-link"><span class="ls-sidebar-icon">👤</span>Profile</a>
+            </div>
+            <button type="button" class="ls-sidebar-link ls-sidebar-logout" onclick="logout()"><span class="ls-sidebar-icon">↪</span>Logout</button>
+        </nav>
+
+        <div class="ls-content">
+
+        <header class="ls-app-header">
+            <button class="ls-icon-btn" id="menu-btn" type="button" aria-label="Menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+            </button>
+
+            <img src="https://i.ibb.co/V0wkkKN4/love-permit.png" alt="LovePermit" class="ls-header-logo">
+
+            <div class="ls-header-spacer" aria-hidden="true"></div>
+        </header>
+
+        <div class="ls-menu-panel" id="menu-panel" hidden>
+            <a href="home.html" class="ls-menu-panel-item">🏠 Home</a>
+            <a href="profile.html" class="ls-menu-panel-item">👤 My Profile</a>
+            <a href="permit.html" class="ls-menu-panel-item">📜 Apply for Permit</a>
+            <a href="orders.html" class="ls-menu-panel-item">🧾 Orders</a>
+            <button type="button" class="ls-menu-panel-item ls-menu-logout" onclick="logout()">↪ Logout</button>
+        </div>
+
+        <main class="ls-app-main">
+
+            <section id="orders-loading" class="ls-orders-loading">
+                <div class="ls-orders-loading-dot"></div>
+                <p>Loading your orders…</p>
+            </section>
+
+            <!-- No permit submitted yet -->
+            <section id="orders-locked" hidden>
+                <div class="ls-empty-state ls-orders-empty">
+                    <div class="ls-empty-icon">📜</div>
+                    <h3>Apply for a Love Permit first</h3>
+                    <p>You need an approved Love Permit before you can order a Premium PVC Card.</p>
+                    <a href="permit.html" class="ls-cta-btn ls-cta-btn-inline">Apply for Love Permit</a>
+                </div>
+            </section>
+
+            <!-- Permit under review -->
+            <section id="orders-pending" hidden>
+                <div class="ls-pending-panel">
+                    <div class="ls-pending-icon">⏱</div>
+                    <h3>Permit Under Review</h3>
+                    <p>Your Love Permit is being reviewed. Premium PVC Cards will be available once it's approved.</p>
+                    <hr>
+                    <div class="ls-pending-meta-label">Average review time</div>
+                    <div class="ls-pending-meta-value">24 – 48 hours</div>
+                    <a href="home.html" class="ls-cta-btn ls-cta-btn-inline">← Back to Home</a>
+                </div>
+            </section>
+
+            <!-- Approved — product preview + order history -->
+            <section id="orders-ready" hidden>
+                <div class="ls-orders-hero">
+                    <span class="ls-coming-soon-badge">Coming Soon</span>
+                    <h2>Premium PVC Card</h2>
+                    <p>A wallet-size card to carry your love everywhere.</p>
+                </div>
+
+                <div class="ls-orders-preview">
+                    <div class="ls-permit-card ls-permit-card-red ls-orders-card-mock">
+                        <div class="ls-permit-card-top">
+                            <span class="ls-permit-card-title">LOVE PERMIT</span>
+                            <span class="ls-permit-card-no" id="orders-card-no">—</span>
+                        </div>
+                        <div class="ls-permit-card-names">
+                            <span id="orders-name-a">You</span>
+                            <span class="ls-permit-heart">♥</span>
+                            <span id="orders-name-b">Partner</span>
+                        </div>
+                        <div class="ls-permit-card-sub">Valid Forever</div>
+                    </div>
+                    <div class="ls-orders-price-row">
+                        <div>
+                            <div class="ls-orders-price-label">Launch price</div>
+                            <div class="ls-orders-price">₹449</div>
+                        </div>
+                        <span class="ls-orders-price-note">Physical card shipping across India</span>
+                    </div>
+                    <button type="button" class="ls-orders-notify-btn" id="notify-btn">Notify Me at Launch</button>
+                    <p id="notify-msg" class="ls-orders-notify-msg" hidden>You're on the list — we'll email you when ordering opens.</p>
+                </div>
+
+                <div class="ls-section-label">Your Orders</div>
+
+                <div class="ls-empty-state ls-orders-history-empty">
+                    <div class="ls-empty-icon">📦</div>
+                    <h3>No orders yet</h3>
+                    <p>Once Premium PVC Cards launch, you'll be able to order and track your physical card right here.</p>
+                </div>
+            </section>
+
+        </main>
+
+        </div>
+
+        <nav class="ls-bottom-nav">
+            <a href="home.html" class="ls-nav-item"><span class="ls-nav-icon">🏠</span>Home</a>
+            <a href="permit.html" class="ls-nav-item"><span class="ls-nav-icon">📜</span>Permit</a>
+            <a href="orders.html" class="ls-nav-item active"><span class="ls-nav-icon">🧾</span>Orders</a>
+            <a href="profile.html" class="ls-nav-item"><span class="ls-nav-icon">👤</span>Profile</a>
+        </nav>
+
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="orders.js"></script>
+
+<a class="mano-return-link" href="../love-permit-card.html" aria-label="Return to ManO CreationS Love Permit Card">← ManO CreationS</a>
+</body>
+
+</html>

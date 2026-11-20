@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Apply for a Love Permit | LovePermit</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="permit-style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="integration.css">
+</head>
+
+<body>
+
+    <div class="ls-shell">
+
+        <nav class="ls-sidebar">
+            <div class="ls-sidebar-logo">
+                <img src="https://i.ibb.co/V0wkkKN4/love-permit.png" alt="LovePermit">
+            </div>
+            <div class="ls-sidebar-links">
+                <a href="home.html" class="ls-sidebar-link"><span class="ls-sidebar-icon">🏠</span>Home</a>
+                <a href="permit.html" class="ls-sidebar-link active"><span class="ls-sidebar-icon">📜</span>Permit</a>
+                <a href="orders.html" class="ls-sidebar-link"><span class="ls-sidebar-icon">🧾</span>Orders</a>
+                <a href="profile.html" class="ls-sidebar-link"><span class="ls-sidebar-icon">👤</span>Profile</a>
+            </div>
+            <button type="button" class="ls-sidebar-link ls-sidebar-logout" onclick="logout()"><span class="ls-sidebar-icon">↪</span>Logout</button>
+        </nav>
+
+        <div class="ls-content">
+
+        <header class="ls-app-header">
+            <button class="ls-icon-btn" id="menu-btn" type="button" aria-label="Menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+            </button>
+
+            <img src="https://i.ibb.co/V0wkkKN4/love-permit.png" alt="LovePermit" class="ls-header-logo">
+
+            <div class="ls-header-spacer" aria-hidden="true"></div>
+        </header>
+
+        <div class="ls-menu-panel" id="menu-panel" hidden>
+            <a href="home.html" class="ls-menu-panel-item">🏠 Home</a>
+            <a href="profile.html" class="ls-menu-panel-item">👤 My Profile</a>
+            <a href="orders.html" class="ls-menu-panel-item">🧾 Orders</a>
+            <button type="button" class="ls-menu-panel-item ls-menu-logout" onclick="logout()">↪ Logout</button>
+        </div>
+
+        <main class="ls-app-main ls-permit-main">
+
+            <!-- Shown when user already has a submitted permit -->
+            <section id="permit-already-submitted" hidden>
+                <div class="ls-pending-panel">
+                    <div class="ls-pending-icon">⏱</div>
+                    <h3>Application Already Submitted</h3>
+                    <p>Your Love Permit is being reviewed by our team. You'll be notified once it's approved.</p>
+                    <hr>
+                    <div class="ls-pending-meta-label">Average review time</div>
+                    <div class="ls-pending-meta-value">24 – 48 hours</div>
+                    <a href="home.html" class="ls-cta-btn ls-cta-btn-inline">← Back to Home</a>
+                </div>
+            </section>
+
+            <!-- Shown after successful form submission -->
+            <section id="permit-submit-success" hidden>
+                <div class="ls-success-panel">
+                    <div class="ls-success-icon">✓</div>
+                    <h3>Application Submitted!</h3>
+                    <p>Thank you for applying. Cupid is reviewing your Love Permit — this usually takes 24–48 hours.</p>
+                    <p class="ls-success-note">Your certificate will appear on the home page once approved.</p>
+                    <a href="home.html" class="ls-cta-btn ls-cta-btn-inline">Go to Home</a>
+                </div>
+            </section>
+
+            <div class="lp-root" id="permit-form-root">
+              <div class="lp-wrap">
+
+                <form class="lp-cert" id="lpForm" novalidate>
+                  <div class="lp-title-block">
+                    <div class="lp-eyebrow">New Application</div>
+                    <div class="lp-subtitle">Every ❤ deserves a love permit</div>
+                  </div>
+
+                  <div class="lp-section-label">Applicant Details</div>
+                  <div class="lp-applicants">
+
+                    <div class="lp-applicant">
+                      <div class="lp-applicant-heading"><span class="dot">1</span> Partner 1</div>
+
+                      <div class="lp-photo-upload">
+                        <div class="lp-photo-frame" id="frameA">
+                          <img id="photoPreviewA" alt="" />
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.5"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg>
+                        </div>
+                        <div class="lp-photo-meta">
+                          <label class="lp-photo-btn" for="photoA">Upload photo</label>
+                          <input type="file" id="photoA" accept="image/*" style="display:none" data-target="A">
+                          <span class="lp-photo-hint">A clear headshot for the permit card</span>
+                          <span class="lp-photo-error" id="photoErrorA">File exceeds 5MB after crop. Try a smaller image.</span>
+                        </div>
+                      </div>
+
+                      <div class="lp-field" data-field="nameA">
+                        <label for="nameA">Full name</label>
+                        <input type="text" id="nameA" name="nameA" required autocomplete="name">
+                        <div class="lp-error-msg">Please enter a name.</div>
+                      </div>
+                      <div class="lp-field" data-field="emailA">
+                        <label for="emailA">Email address</label>
+                        <input type="email" id="emailA" name="emailA" required autocomplete="email">
+                        <div class="lp-error-msg">Please enter a valid email.</div>
+                      </div>
+                      <div class="lp-field" data-field="dobA">
+                        <label for="dobA">Date of birth</label>
+                        <input type="date" id="dobA" name="dobA" required>
+                        <div class="lp-error-msg">Please enter a date of birth.</div>
+                      </div>
+                      <div class="lp-field" data-field="professionA">
+                        <label for="professionA">Profession</label>
+                        <input type="text" id="professionA" name="professionA" required autocomplete="organization-title">
+                        <div class="lp-error-msg">Please enter a profession.</div>
+                      </div>
+                    </div>
+
+                    <div class="lp-applicant">
+                      <div class="lp-applicant-heading"><span class="dot">2</span> Partner 2</div>
+
+                      <div class="lp-photo-upload">
+                        <div class="lp-photo-frame" id="frameB">
+                          <img id="photoPreviewB" alt="" />
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.5"/><path d="M4 20c0-4 3.5-6 8-6s8 2 8 6"/></svg>
+                        </div>
+                        <div class="lp-photo-meta">
+                          <label class="lp-photo-btn" for="photoB">Upload photo</label>
+                          <input type="file" id="photoB" accept="image/*" style="display:none" data-target="B">
+                          <span class="lp-photo-hint">A clear headshot for the permit card</span>
+                          <span class="lp-photo-error" id="photoErrorB">File exceeds 5MB after crop. Try a smaller image.</span>
+                        </div>
+                      </div>
+
+                      <div class="lp-field" data-field="nameB">
+                        <label for="nameB">Full name</label>
+                        <input type="text" id="nameB" name="nameB" required autocomplete="off">
+                        <div class="lp-error-msg">Please enter a name.</div>
+                      </div>
+                      <div class="lp-field" data-field="emailB">
+                        <label for="emailB">Email address</label>
+                        <input type="email" id="emailB" name="emailB" required autocomplete="off">
+                        <div class="lp-error-msg">Please enter a valid email.</div>
+                      </div>
+                      <div class="lp-field" data-field="dobB">
+                        <label for="dobB">Date of birth</label>
+                        <input type="date" id="dobB" name="dobB" required>
+                        <div class="lp-error-msg">Please enter a date of birth.</div>
+                      </div>
+                      <div class="lp-field" data-field="professionB">
+                        <label for="professionB">Profession</label>
+                        <input type="text" id="professionB" name="professionB" required autocomplete="off">
+                        <div class="lp-error-msg">Please enter a profession.</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="lp-section-label">Filing Details</div>
+                  <div class="lp-shared">
+                    <div class="lp-field" data-field="issuedDate">
+                      <label for="issuedDate">Custom issued on date</label>
+                      <input type="date" id="issuedDate" name="issuedDate" required>
+                      <div class="lp-error-msg">Please select an issue date.</div>
+                    </div>
+                    <div class="lp-field" data-field="status">
+                      <label for="status">Status of relationship</label>
+                      <select id="status" name="status" required>
+                        <option value="" disabled selected>Select status</option>
+                        <option value="In Love">In Love</option>
+                        <option value="Married">Married</option>
+                      </select>
+                      <div class="lp-error-msg">Please select a status.</div>
+                    </div>
+                    <div class="lp-field" data-field="emergencyMobile">
+                      <label for="emergencyMobile">Emergency Mobile Number</label>
+                      <input
+                        type="tel"
+                        id="emergencyMobile"
+                        name="emergencyMobile"
+                        required
+                        autocomplete="tel"
+                        inputmode="numeric"
+                        maxlength="10"
+                        pattern="[0-9]{10}"
+                        placeholder="Enter 10 digit mobile number">
+                      <div class="lp-error-msg">Please enter a valid 10 digit emergency contact number.</div>
+                    </div>
+                    <div class="lp-field" data-field="firstILoveYou">
+                      <label for="firstILoveYou">When did you first say or hear <strong>I love you</strong>? ❤️</label>
+                      <input type="date" id="firstILoveYou" name="firstILoveYou" required>
+                      <div class="lp-error-msg">Please select this date.</div>
+                    </div>
+                    <div class="lp-field" data-field="firstMeet">
+                      <label for="firstMeet">When did you first meet each other?</label>
+                      <input type="date" id="firstMeet" name="firstMeet" required>
+                      <div class="lp-error-msg">Please select this date.</div>
+                    </div>
+                    <div class="lp-field lp-married-date" data-field="marriedDate" style="display:none;">
+                      <label for="marriedDate">Married date</label>
+                      <input type="date" id="marriedDate" name="marriedDate">
+                      <div class="lp-error-msg">Please select your married date.</div>
+                    </div>
+                  </div>
+
+                  <div class="lp-section-label">Signatures · optional</div>
+                  <div class="lp-signatures">
+                    <div class="lp-sig-block">
+                      <div class="lp-sig-label">Partner 1's signature</div>
+                      <div class="lp-sig-upload" id="sigUploadHim">
+                        <label class="lp-sig-upload-trigger" for="sigFileHim">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 16V4M12 4l-4 4M12 4l4 4"/><path d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+                          <span class="lp-sig-upload-text" id="sigTextHim">Upload signature<small>JPG or PNG, max 2MB</small></span>
+                          <img class="lp-sig-preview-img" id="sigPreviewHim" alt="Partner 1 signature">
+                        </label>
+                        <button type="button" class="lp-sig-remove" data-sig="Him" aria-label="Remove signature">×</button>
+                      </div>
+                      <input type="file" id="sigFileHim" accept="image/*" style="display:none" data-target="Him">
+                      <div class="lp-sig-error" id="sigErrorHim">File exceeds 2MB. Please choose a smaller image.</div>
+                    </div>
+                    <div class="lp-sig-block">
+                      <div class="lp-sig-label">Partner 2's signature</div>
+                      <div class="lp-sig-upload" id="sigUploadHer">
+                        <label class="lp-sig-upload-trigger" for="sigFileHer">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 16V4M12 4l-4 4M12 4l4 4"/><path d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+                          <span class="lp-sig-upload-text" id="sigTextHer">Upload signature<small>JPG or PNG, max 2MB</small></span>
+                          <img class="lp-sig-preview-img" id="sigPreviewHer" alt="Partner 2 signature">
+                        </label>
+                        <button type="button" class="lp-sig-remove" data-sig="Her" aria-label="Remove signature">×</button>
+                      </div>
+                      <input type="file" id="sigFileHer" accept="image/*" style="display:none" data-target="Her">
+                      <div class="lp-sig-error" id="sigErrorHer">File exceeds 2MB. Please choose a smaller image.</div>
+                    </div>
+                  </div>
+
+                  <div class="lp-submit-row">
+                    <button type="submit" class="lp-submit" id="lpSubmitBtn">Review &amp; Register</button>
+                    <div class="lp-submit-hint">Once you apply, Cupid will review your Love Permit before approval.</div>
+                    <p id="lpSubmitError" class="error-notice" hidden></p>
+                  </div>
+                </form>
+
+                <div class="lp-modal-overlay" id="cropOverlay">
+                  <div class="lp-modal">
+                    <h3>Frame Your Photo</h3>
+                    <p>This photo will be printed on your Love Permit card. Ensure only your head is visible and centered. Pinch, drag, or scroll to adjust.</p>
+                    <div class="lp-crop-area"><img id="cropImageEl" alt=""></div>
+                    <div class="lp-modal-error" id="cropError">Could not process this image. Please try another.</div>
+                    <div class="lp-modal-actions">
+                      <button type="button" class="lp-modal-btn secondary" id="cropCancel">Cancel</button>
+                      <button type="button" class="lp-modal-btn primary" id="cropConfirm">Frame &amp; Use</button>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+        </main>
+
+        </div>
+
+        <nav class="ls-bottom-nav">
+            <a href="home.html" class="ls-nav-item"><span class="ls-nav-icon">🏠</span>Home</a>
+            <a href="permit.html" class="ls-nav-item active"><span class="ls-nav-icon">📜</span>Permit</a>
+            <a href="orders.html" class="ls-nav-item"><span class="ls-nav-icon">🧾</span>Orders</a>
+            <a href="profile.html" class="ls-nav-item"><span class="ls-nav-icon">👤</span>Profile</a>
+        </nav>
+
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+    <script src="permit.js"></script>
+
+<a class="mano-return-link" href="../love-permit-card.html" aria-label="Return to ManO CreationS Love Permit Card">← ManO CreationS</a>
+</body>
+
+</html>

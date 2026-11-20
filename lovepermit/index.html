@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LovePermit — a secure, private, verified digital identity for couples. Sign in with your Google Account.">
+  <meta name="theme-color" content="#C1476B">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="LovePermit | Sign In">
+  <meta property="og:description" content="The Digital Identity for Couples. Secure, private, and verified.">
+  <meta property="og:type" content="website">
+
+  <title>LovePermit | Sign In</title>
+
+  <link rel="icon" type="image/png" href="../love-permit-card.html">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Preconnect before stylesheet request to avoid render-blocking -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet"
+    media="print"
+    onload="this.media='all'">
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  </noscript>
+
+  <!-- Google Identity Services — load early, non-blocking -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+  <!-- Inline critical: hide One Tap until GSI ready to avoid flash -->
+  <style>
+    #g_id_onload { display: none; }
+  </style>
+<link rel="stylesheet" href="integration.css">
+</head>
+
+<body>
+
+  <main class="ls-login" role="main">
+
+    <!-- Decorative floating hearts (aria-hidden, so screen readers skip entirely) -->
+    <div class="ls-hearts" aria-hidden="true">
+      <svg class="ls-heart" style="top:6%;left:9%;width:34px;height:34px;transform:rotate(-12deg)" viewBox="0 0 32 29" focusable="false"><path d="M16 29 2.4 16.1C-1.8 12.1.4 4.6 6.4 3.1c3.4-.8 6.9.5 9.6 3.6 2.7-3.1 6.2-4.4 9.6-3.6 6 1.5 8.2 9 4 13z"/></svg>
+      <svg class="ls-heart" style="top:10%;left:72%;width:22px;height:22px;transform:rotate(10deg)"  viewBox="0 0 32 29" focusable="false"><path d="M16 29 2.4 16.1C-1.8 12.1.4 4.6 6.4 3.1c3.4-.8 6.9.5 9.6 3.6 2.7-3.1 6.2-4.4 9.6-3.6 6 1.5 8.2 9 4 13z"/></svg>
+      <svg class="ls-heart" style="top:23%;left:2%;width:14px;height:14px;transform:rotate(6deg)"   viewBox="0 0 32 29" focusable="false"><path d="M16 29 2.4 16.1C-1.8 12.1.4 4.6 6.4 3.1c3.4-.8 6.9.5 9.6 3.6 2.7-3.1 6.2-4.4 9.6-3.6 6 1.5 8.2 9 4 13z"/></svg>
+      <svg class="ls-heart" style="top:36%;left:90%;width:26px;height:26px;transform:rotate(-8deg)" viewBox="0 0 32 29" focusable="false"><path d="M16 29 2.4 16.1C-1.8 12.1.4 4.6 6.4 3.1c3.4-.8 6.9.5 9.6 3.6 2.7-3.1 6.2-4.4 9.6-3.6 6 1.5 8.2 9 4 13z"/></svg>
+      <svg class="ls-heart" style="top:60%;left:4%;width:12px;height:12px;transform:rotate(14deg)"  viewBox="0 0 32 29" focusable="false"><path d="M16 29 2.4 16.1C-1.8 12.1.4 4.6 6.4 3.1c3.4-.8 6.9.5 9.6 3.6 2.7-3.1 6.2-4.4 9.6-3.6 6 1.5 8.2 9 4 13z"/></svg>
+      <svg class="ls-heart" style="top:74%;left:92%;width:18px;height:18px;transform:rotate(-16deg)" viewBox="0 0 32 29" focusable="false"><path d="M16 29 2.4 16.1C-1.8 12.1.4 4.6 6.4 3.1c3.4-.8 6.9.5 9.6 3.6 2.7-3.1 6.2-4.4 9.6-3.6 6 1.5 8.2 9 4 13z"/></svg>
+      <svg class="ls-heart" style="top:88%;left:14%;width:15px;height:15px;transform:rotate(8deg)"  viewBox="0 0 32 29" focusable="false"><path d="M16 29 2.4 16.1C-1.8 12.1.4 4.6 6.4 3.1c3.4-.8 6.9.5 9.6 3.6 2.7-3.1 6.2-4.4 9.6-3.6 6 1.5 8.2 9 4 13z"/></svg>
+    </div>
+
+    <section class="ls-login-card" aria-labelledby="login-heading">
+
+      <!-- Brand / left panel -->
+      <div class="ls-login-brand">
+        <h1 id="login-heading" class="ls-hero-logo-wrap" style="margin:0;padding:0;font-size:0;line-height:0;">
+          <img
+            src="https://i.ibb.co/V0wkkKN4/love-permit.png"
+            alt="LovePermit"
+            class="ls-hero-logo"
+            width="220"
+            height="auto"
+            loading="eager"
+            decoding="async">
+        </h1>
+
+        <p class="ls-tagline">
+          The Digital Identity for Couples
+          <svg class="ls-tagline-heart" viewBox="0 0 32 29" aria-hidden="true" focusable="false">
+            <path d="M16 29 2.4 16.1C-1.8 12.1.4 4.6 6.4 3.1c3.4-.8 6.9.5 9.6 3.6 2.7-3.1 6.2-4.4 9.6-3.6 6 1.5 8.2 9 4 13z"/>
+          </svg>
+        </p>
+
+        <p class="ls-login-copy">
+          Celebrate your relationship with a secure, private, and verified digital identity.
+        </p>
+
+        <ul class="ls-badges" role="list" aria-label="Security features">
+          <li class="ls-badge">
+            <span class="ls-badge-icon" aria-hidden="true">
+              <img src="https://i.ibb.co/39DMD8Jv/shield.png" alt="" class="ls-badge-icon-img" width="24" height="24" loading="lazy" decoding="async">
+            </span>
+            <span class="ls-badge-label">Secure</span>
+          </li>
+          <li class="ls-badge">
+            <span class="ls-badge-icon" aria-hidden="true">
+              <img src="https://i.ibb.co/ycdf4TtV/lock.png" alt="" class="ls-badge-icon-img" width="24" height="24" loading="lazy" decoding="async">
+            </span>
+            <span class="ls-badge-label">Private</span>
+          </li>
+          <li class="ls-badge">
+            <span class="ls-badge-icon" aria-hidden="true">
+              <img src="https://i.ibb.co/qMX6RDNS/verify.png" alt="" class="ls-badge-icon-img" width="24" height="24" loading="lazy" decoding="async">
+            </span>
+            <span class="ls-badge-label">Verified</span>
+          </li>
+        </ul>
+
+        <div class="ls-login-permit-strip" aria-label="Trust indicators">
+          <span>Established 2024</span>
+          <span aria-hidden="true">·</span>
+          <span>Private by Design</span>
+          <span aria-hidden="true">·</span>
+          <span>Issued with Trust</span>
+        </div>
+      </div>
+
+      <div class="ls-login-illustration" aria-hidden="true">
+          <img
+            src="https://i.ibb.co/1tPHvfdt/finger.png"
+            alt=""
+            class="ls-login-illustration-img"
+            loading="lazy"
+            decoding="async">
+        </div>
+
+      <!-- Sign-in / right panel -->
+      <div class="ls-login-action">
+        <p class="ls-login-action-eyebrow" aria-hidden="true">Welcome</p>
+        <h2 class="ls-login-action-title">Sign in to continue</h2>
+        <p class="ls-login-action-sub">Access your verified Love Permit securely.</p>
+
+        <!-- Google One Tap (auto sign-in) -->
+        <div
+          id="g_id_onload"
+          data-client_id="915728197587-je6hdkfb2rkms9gomi61bgckt0sl7o3b.apps.googleusercontent.com"
+          data-callback="handleCredentialResponse"
+          data-auto_prompt="true"
+          data-cancel_on_tap_outside="false"
+          data-context="signin"
+          data-itp_support="true">
+        </div>
+
+        <!-- Standard Google Sign-In button -->
+        <div
+          class="g_id_signin"
+          data-type="standard"
+          data-size="large"
+          data-shape="pill"
+          data-theme="outline"
+          data-text="continue_with"
+          data-width="320"
+          role="button"
+          aria-label="Sign in with Google">
+        </div>
+
+        <!-- Error states -->
+        <noscript>
+          <p class="ls-notice ls-notice--warn" role="alert">
+            JavaScript is required to sign in. Please enable it and refresh.
+          </p>
+        </noscript>
+        <p id="signin-error" class="ls-notice ls-notice--error" role="alert" aria-live="assertive" hidden></p>
+
+        <!-- Trust checklist -->
+        <ul class="ls-login-checklist" role="list" aria-label="Security guarantees">
+          <li>End-to-end encrypted</li>
+          <li>Private authentication</li>
+          <li>Trusted by Love Permit</li>
+        </ul>
+
+        <p class="ls-terms">
+          By continuing, you agree to our
+          <a href="../terms.html" rel="noopener">Terms of Service</a>
+          &amp;
+          <a href="../privacy-policy.html" rel="noopener">Privacy Policy</a>
+        </p>
+      </div>
+
+    </section>
+  </main>
+
+  <script src="app.js" defer></script>
+  <script>
+    // Show error if Google Identity Services fails to load (adblock / network issue)
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        if (typeof google === 'undefined' || !google.accounts) {
+          const el = document.getElementById('signin-error');
+          el.textContent = 'Google Sign-In failed to load. Please disable any ad blockers and refresh.';
+          el.hidden = false;
+        }
+      }, 3000);
+    });
+  </script>
+
+<a class="mano-return-link" href="../love-permit-card.html" aria-label="Return to ManO CreationS Love Permit Card">← ManO CreationS</a>
+</body>
+</html>

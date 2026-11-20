@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Home | LovePermit</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="integration.css">
+</head>
+
+<body>
+
+    <div class="ls-shell">
+
+        <nav class="ls-sidebar">
+            <div class="ls-sidebar-logo">
+                <img src="https://i.ibb.co/V0wkkKN4/love-permit.png" alt="LovePermit">
+            </div>
+            <div class="ls-sidebar-links">
+                <a href="home.html" class="ls-sidebar-link active"><span class="ls-sidebar-icon">🏠</span>Home</a>
+                <a href="permit.html" class="ls-sidebar-link"><span class="ls-sidebar-icon">📜</span>Permit</a>
+                <a href="orders.html" class="ls-sidebar-link"><span class="ls-sidebar-icon">🧾</span>Orders</a>
+                <a href="profile.html" class="ls-sidebar-link"><span class="ls-sidebar-icon">👤</span>Profile</a>
+            </div>
+            <button type="button" class="ls-sidebar-link ls-sidebar-logout" onclick="logout()"><span class="ls-sidebar-icon">↪</span>Logout</button>
+        </nav>
+
+        <div class="ls-content">
+
+        <header class="ls-app-header">
+            <button class="ls-icon-btn" id="menu-btn" type="button" aria-label="Menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+            </button>
+
+            <img src="https://i.ibb.co/V0wkkKN4/love-permit.png" alt="LovePermit" class="ls-header-logo">
+
+            <div class="ls-header-spacer" aria-hidden="true"></div>
+        </header>
+
+        <div class="ls-menu-panel" id="menu-panel" hidden>
+            <a href="home.html" class="ls-menu-panel-item">🏠 Home</a>
+            <a href="profile.html" class="ls-menu-panel-item">👤 My Profile</a>
+            <a href="permit.html" class="ls-menu-panel-item">📜 Apply for Permit</a>
+            <a href="orders.html" class="ls-menu-panel-item">🧾 Orders</a>
+            <button type="button" class="ls-menu-panel-item ls-menu-logout" onclick="logout()">↪ Logout</button>
+        </div>
+
+        <main class="ls-app-main">
+
+            <div class="ls-greeting">
+                <div>
+                    <div class="ls-greeting-hi">🌙 Good Evening, <span id="first-name"></span></div>
+                    <div class="ls-greeting-sub">Your Love Permit application is currently being reviewed by our team.</div>
+                </div>
+            </div>
+
+            <div class="ls-dashboard-grid">
+            <div class="ls-dashboard-main">
+
+            <!-- STATUS BADGE -->
+            <div class="ls-status-badge">
+                <span class="ls-status-dot"></span>
+                <span class="ls-status-text">Under Review</span>
+                <span class="ls-status-time">Estimated approval: 2-3 Business Days</span>
+            </div>
+
+            <!-- LOVE PERMIT CARD SECTION -->
+            <div class="ls-permit-display-section">
+                <div class="ls-permit-display-title">
+                    >> >> >> >> >>  L ❤ V E  P E R M I T  << << << <<
+                </div>
+                
+                <div class="ls-permit-card-full">
+                    <div class="ls-permit-card-row">
+                        <img class="ls-permit-photo" src="https://via.placeholder.com/150" alt="Partner 1">
+                        <div class="ls-permit-card-center">
+                            <div class="ls-qr-placeholder">⊞ QR</div>
+                            <div class="ls-in-love-text">IN LOVE</div>
+                        </div>
+                        <img class="ls-permit-photo" src="https://via.placeholder.com/150" alt="Partner 2">
+                    </div>
+
+                    <div class="ls-permit-details">
+                        <div class="ls-detail-row">
+                            <div class="ls-detail-item">
+                                <span class="ls-detail-label">NAME 1</span>
+                                <span class="ls-detail-value" id="permit-name-1">—</span>
+                            </div>
+                            <div class="ls-detail-item">
+                                <span class="ls-detail-label">BIRTHDAY 1</span>
+                                <span class="ls-detail-value" id="permit-date-1">—</span>
+                            </div>
+                            <div class="ls-detail-item">
+                                <span class="ls-detail-label">PROFESSION 1</span>
+                                <span class="ls-detail-value" id="permit-prof-1">—</span>
+                            </div>
+                        </div>
+
+                        <div class="ls-detail-row">
+                            <div class="ls-detail-item">
+                                <span class="ls-detail-label">NAME 2</span>
+                                <span class="ls-detail-value" id="permit-name-2">—</span>
+                            </div>
+                            <div class="ls-detail-item">
+                                <span class="ls-detail-label">BIRTHDAY 2</span>
+                                <span class="ls-detail-value" id="permit-date-2">—</span>
+                            </div>
+                            <div class="ls-detail-item">
+                                <span class="ls-detail-label">PROFESSION 2</span>
+                                <span class="ls-detail-value" id="permit-prof-2">—</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ls-permit-footer">
+                        <div class="ls-permit-tier">🔴 BRONZE</div>
+                        <div class="ls-permit-number">PERMIT NO : INTN00AA000</div>
+                        <div class="ls-permit-issued">ISSUED ON : 14-02-2027</div>
+                    </div>
+                </div>
+
+                <!-- ACTION BUTTONS -->
+                <div class="ls-card-actions">
+                    <button class="ls-card-action-btn ls-card-action-primary">
+                        <span class="ls-card-action-icon">⬇</span>
+                        <span class="ls-card-action-label">Download Permit</span>
+                    </button>
+                    <button class="ls-card-action-btn">
+                        <span class="ls-card-action-icon">⊞</span>
+                        <span class="ls-card-action-label">View QR</span>
+                    </button>
+                    <button class="ls-card-action-btn">
+                        <span class="ls-card-action-icon">↗</span>
+                        <span class="ls-card-action-label">Share</span>
+                    </button>
+                    <button class="ls-card-action-btn">
+                        <span class="ls-card-action-icon">👁</span>
+                        <span class="ls-card-action-label">View Details</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- STAT CARDS -->
+            <div class="ls-stat-cards-grid">
+                <div class="ls-stat-card">
+                    <div class="ls-stat-icon">📋</div>
+                    <div class="ls-stat-label">Permit Status</div>
+                    <div class="ls-stat-value">Under Review</div>
+                    <a href="#" class="ls-stat-link">View Details</a>
+                </div>
+                <div class="ls-stat-card">
+                    <div class="ls-stat-icon">🏅</div>
+                    <div class="ls-stat-label">Membership</div>
+                    <div class="ls-stat-value">Bronze</div>
+                    <a href="#" class="ls-stat-link">View Benefits</a>
+                </div>
+                <div class="ls-stat-card">
+                    <div class="ls-stat-icon">🛍️</div>
+                    <div class="ls-stat-label">Orders</div>
+                    <div class="ls-stat-value">3</div>
+                    <a href="#" class="ls-stat-link">View Orders</a>
+                </div>
+                <div class="ls-stat-card">
+                    <div class="ls-stat-icon">🔔</div>
+                    <div class="ls-stat-label">Notifications</div>
+                    <div class="ls-stat-value">2</div>
+                    <a href="#" class="ls-stat-link">View All</a>
+                </div>
+            </div>
+
+            </div>
+
+            <div class="ls-dashboard-rail">
+
+                <div class="ls-pvc-box" id="pvc-box" hidden>
+                    <div class="ls-pvc-title">Premium PVC Card</div>
+                    <div class="ls-pvc-sub">Own a beautiful wallet-size card and carry your love everywhere.</div>
+                    <div class="ls-pvc-row">
+                        <div class="ls-pvc-price">₹449</div>
+                        <a href="orders.html" class="ls-pvc-btn">Order Now</a>
+                    </div>
+                </div>
+
+            <div class="ls-profile-summary">
+                <div class="ls-profile-summary-head">
+                    <span>My Profile</span>
+                    <a href="profile.html">View ›</a>
+                </div>
+                <div class="ls-profile-summary-body">
+                    <img id="summary-photo" class="ls-profile-summary-avatar" alt="">
+                    <div>
+                        <div class="ls-profile-summary-name" id="summary-name"></div>
+                        <div class="ls-profile-summary-line" id="summary-email"></div>
+                        <div class="ls-profile-summary-line" id="summary-phone"></div>
+                        <div class="ls-profile-summary-line" id="summary-address"></div>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+
+            </div>
+
+        </main>
+
+        </div>
+
+        <nav class="ls-bottom-nav">
+            <a href="home.html" class="ls-nav-item active"><span class="ls-nav-icon">🏠</span>Home</a>
+            <a href="permit.html" class="ls-nav-item"><span class="ls-nav-icon">📜</span>Permit</a>
+            <a href="orders.html" class="ls-nav-item"><span class="ls-nav-icon">🧾</span>Orders</a>
+            <a href="profile.html" class="ls-nav-item"><span class="ls-nav-icon">👤</span>Profile</a>
+        </nav>
+
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="home.js"></script>
+
+
+<a class="mano-return-link" href="../love-permit-card.html" aria-label="Return to ManO CreationS Love Permit Card">← ManO CreationS</a>
+</body>
+
+</html>

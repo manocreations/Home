@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Profile | LovePermit</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="integration.css">
+</head>
+
+<body>
+
+    <div class="ls-shell">
+
+        <nav class="ls-sidebar">
+            <div class="ls-sidebar-logo">
+                <img src="https://i.ibb.co/V0wkkKN4/love-permit.png" alt="LovePermit">
+            </div>
+            <div class="ls-sidebar-links">
+                <a href="home.html" class="ls-sidebar-link"><span class="ls-sidebar-icon">🏠</span>Home</a>
+                <a href="permit.html" class="ls-sidebar-link"><span class="ls-sidebar-icon">📜</span>Permit</a>
+                <a href="orders.html" class="ls-sidebar-link"><span class="ls-sidebar-icon">🧾</span>Orders</a>
+                <a href="profile.html" class="ls-sidebar-link active"><span class="ls-sidebar-icon">👤</span>Profile</a>
+            </div>
+            <button type="button" class="ls-sidebar-link ls-sidebar-logout" onclick="logout()"><span class="ls-sidebar-icon">↪</span>Logout</button>
+        </nav>
+
+        <div class="ls-content">
+
+        <header class="ls-app-header">
+            <button class="ls-icon-btn" id="menu-btn" type="button" aria-label="Menu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+            </button>
+
+            <img src="https://i.ibb.co/V0wkkKN4/love-permit.png" alt="LovePermit" class="ls-header-logo">
+
+            <div class="ls-header-spacer" aria-hidden="true"></div>
+        </header>
+
+        <div class="ls-menu-panel" id="menu-panel" hidden>
+            <a href="home.html" class="ls-menu-panel-item">🏠 Home</a>
+            <a href="profile.html" class="ls-menu-panel-item">👤 My Profile</a>
+            <a href="permit.html" class="ls-menu-panel-item">📜 Apply for Permit</a>
+            <a href="orders.html" class="ls-menu-panel-item">🧾 Orders</a>
+            <button type="button" class="ls-menu-panel-item ls-menu-logout" onclick="logout()">↪ Logout</button>
+        </div>
+
+        <main class="ls-app-main">
+
+            <div class="ls-profile-hero">
+                <img id="photo" class="ls-profile-hero-avatar" alt="Profile photo">
+                <h2 id="name"></h2>
+                <p id="email" class="ls-profile-hero-email"></p>
+                <a href="complete-profile.html" class="ls-edit-profile-btn">Edit Profile</a>
+            </div>
+
+            <div class="ls-form-card">
+                <div class="ls-form-row">
+                    <span class="ls-form-icon">📱</span>
+                    <div class="ls-form-field">
+                        <span class="ls-form-label">Mobile Number</span>
+                        <span id="phone" class="ls-form-value"></span>
+                    </div>
+                </div>
+                <div class="ls-form-row">
+                    <span class="ls-form-icon">🏠</span>
+                    <div class="ls-form-field">
+                        <span class="ls-form-label">Address</span>
+                        <span id="address" class="ls-form-value"></span>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        </div>
+
+        <nav class="ls-bottom-nav">
+            <a href="home.html" class="ls-nav-item"><span class="ls-nav-icon">🏠</span>Home</a>
+            <a href="permit.html" class="ls-nav-item"><span class="ls-nav-icon">📜</span>Permit</a>
+            <a href="orders.html" class="ls-nav-item"><span class="ls-nav-icon">🧾</span>Orders</a>
+            <a href="profile.html" class="ls-nav-item active"><span class="ls-nav-icon">👤</span>Profile</a>
+        </nav>
+
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="profile.js"></script>
+
+<a class="mano-return-link" href="../love-permit-card.html" aria-label="Return to ManO CreationS Love Permit Card">← ManO CreationS</a>
+</body>
+
+</html>

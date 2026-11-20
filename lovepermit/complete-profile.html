@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Complete Profile | LovePermit</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="integration.css">
+</head>
+
+<body>
+
+<header class="ls-simple-header">
+    <button class="ls-back-btn" type="button" id="back-btn" aria-label="Go back">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+    </button>
+</header>
+
+<main class="ls-cp-main">
+
+    <div class="ls-cp-hero">
+        <img src="https://i.ibb.co/V0wkkKN4/love-permit.png" alt="LovePermit" class="ls-cp-logo">
+        <h2 id="page-title">Complete Your Profile</h2>
+        <p class="ls-cp-sub" id="page-subtitle">Just a few details to get you started</p>
+    </div>
+
+    <div class="ls-form-card">
+
+        <div class="ls-form-row">
+            <span class="ls-form-icon">👤</span>
+            <div class="ls-form-field">
+                <span class="ls-form-label">Full Name</span>
+                <span id="name" class="ls-form-value"></span>
+            </div>
+        </div>
+
+        <div class="ls-form-row">
+            <span class="ls-form-icon">✉️</span>
+            <div class="ls-form-field">
+                <span class="ls-form-label">Email</span>
+                <span id="email" class="ls-form-value"></span>
+            </div>
+        </div>
+
+        <div class="ls-form-row ls-form-row-editable">
+            <span class="ls-form-icon">📱</span>
+            <div class="ls-form-field">
+                <span class="ls-form-label">Mobile Number</span>
+                <input
+                    type="tel"
+                    id="phone"
+                    placeholder="Enter mobile number"
+                    maxlength="10"
+                    minlength="10"
+                    pattern="[0-9]{10}"
+                    inputmode="numeric"
+                    required>
+            </div>
+        </div>
+
+        <div class="ls-form-row ls-form-row-editable">
+            <span class="ls-form-icon">🏠</span>
+            <div class="ls-form-field">
+                <span class="ls-form-label">City <em>(optional)</em></span>
+                <input type="text" id="address" placeholder="Enter your city">
+            </div>
+        </div>
+
+    </div>
+
+    <button id="continue-btn" class="ls-primary-btn" type="button">
+        Save &amp; Continue <span aria-hidden="true">→</span>
+    </button>
+
+    <p id="profile-error" class="error-notice ls-cp-error" hidden></p>
+
+    <p class="footer">
+        Your mobile number is used only for account verification.
+    </p>
+
+</main>
+
+<script src="auth.js"></script>
+<script src="complete-profile.js"></script>
+
+<a class="mano-return-link" href="../love-permit-card.html" aria-label="Return to ManO CreationS Love Permit Card">← ManO CreationS</a>
+</body>
+
+</html>

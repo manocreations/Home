@@ -1,0 +1,5 @@
+/* Integration utilities — isolated to the LovePermit app. */
+[hidden] { display: none !important; }
+.mano-return-link { position: fixed; z-index: 1000; bottom: 82px; right: 16px; padding: 10px 14px; border-radius: 999px; background: #222033; color: #fff; font: 600 12px/1.25 Inter, sans-serif; text-decoration: none; box-shadow: 0 4px 20px #0002; }
+.mano-return-link:hover, .mano-return-link:focus-visible { background: #9d3558; color: #fff; }
+@media (max-width: 600px) { .mano-return-link { bottom: 76px; right: 12px; padding: 8px 11px; font-size: 11px; } }
