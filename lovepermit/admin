@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cupid</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        .verified-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+        .badge-verified {
+            background: #e3f6e8;
+            color: #1e8a3c;
+        }
+        .badge-pending {
+            background: #fff6d6;
+            color: #9a7c00;
+        }
+        .badge-rejected {
+            background: #fde3e3;
+            color: #c9302c;
+        }
+    </style>
+
+<link rel="stylesheet" href="integration.css">
+</head>
+
+<body>
+
+    <div class="topbar">
+
+        <h2 class="logo">
+            <img src="https://i.ibb.co/V0wkkKN4/love-permit.png" alt="LovePermit" class="logo-img"> <span class="admin-tag">CUPID</span>
+        </h2>
+
+        <button class="logout-btn" onclick="logout()">
+            Logout
+        </button>
+
+    </div>
+
+    <div class="admin-container">
+
+    <!-- Top Toolbar -->
+    <div class="admin-toolbar">
+
+        <div class="admin-toggle-section">
+            <button id="toggle-users-btn" class="admin-toggle-btn active" type="button">
+                All Users
+            </button>
+
+            <button id="toggle-permits-btn" class="admin-toggle-btn" type="button">
+                Love Permit Applications
+            </button>
+        </div>
+
+        <div class="search-box-wrap">
+            <span class="search-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                </svg>
+            </span>
+            <input type="text" id="admin-search" class="admin-search-input" placeholder="Search…" autocomplete="off">
+        </div>
+
+        <div class="header-actions">
+
+    <button id="add-user-btn" class="secondary-btn" type="button">
+        + Add User
+    </button>
+
+    <button id="refresh-btn" class="secondary-btn" type="button">
+        ↻ Refresh
+    </button>
+
+    <button id="permits-refresh-btn" class="secondary-btn" type="button" hidden>
+        ↻ Refresh
+    </button>
+
+</div>
+
+    </div>
+
+    <!-- Users -->
+    <div id="users-section" class="admin-section">
+
+        <p id="admin-error" class="error-notice" hidden></p>
+        <p id="admin-loading">Loading Couples…</p>
+
+        <div class="table-wrap" hidden id="table-wrap">
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="users-tbody"></tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <!-- Love Permit Applications -->
+    <div id="permits-section" class="admin-section" hidden>
+
+
+        <p id="permits-error" class="error-notice" hidden></p>
+        <p id="permits-loading">Loading permits…</p>
+
+        <div class="table-wrap" hidden id="permits-table-wrap">
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Permit No.</th>
+                        <th>Couple</th>
+                        <th>Status</th>
+                        <th>
+                            <div class="th-filter-wrap" id="verified-filter-wrap">
+                                <span>Verified</span>
+                                <button class="th-filter-btn" id="verified-filter-btn" type="button" title="Filter by verification status">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M7 10l5 5 5-5z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </th>
+                        <th>Issued</th>
+                        <th>Emergency Contact</th>
+                        <th>Submitted By</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="permits-tbody"></tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
+    <!-- Edit modal -->
+    <div id="edit-modal" class="modal-overlay" hidden style="display:none">
+        <div class="modal-card">
+
+            <h3 id="edit-modal-title">Edit User</h3>
+
+            <div class="input-box">
+                <span>👤</span>
+                <input type="text" id="edit-name" placeholder="Name">
+            </div>
+
+            <div class="input-box">
+                <span>✉️</span>
+                <input type="email" id="edit-email" placeholder="Email">
+            </div>
+
+            <div class="input-box">
+                <span>📱</span>
+                <input type="tel" id="edit-phone" placeholder="Phone" maxlength="10">
+            </div>
+
+            <div class="input-box">
+                <span>🏠</span>
+                <input type="text" id="edit-address" placeholder="Address">
+            </div>
+
+            <div class="input-box">
+                <span>💳</span>
+                <input type="url" id="edit-card-image" placeholder="Card Image URL">
+            </div>
+
+            <p id="edit-error" class="error-notice" hidden></p>
+
+            <div class="modal-actions">
+                <button id="edit-cancel-btn" class="secondary-btn" type="button">Cancel</button>
+                <button id="edit-save-btn" type="button">Save Changes</button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Permit detail modal -->
+    <div id="permit-view-modal" class="modal-overlay" hidden style="display:none">
+        <div class="modal-card">
+
+            <h3>Permit Details</h3>
+
+            <div class="pv-media-row">
+                <div class="pv-media-col">
+                    <div class="pv-media-block">
+                        <img id="pv-photo-a" class="pv-photo" hidden alt="His photo">
+                        <span class="pv-media-label">His photo</span>
+                    </div>
+                    <div class="pv-media-block">
+                        <img id="pv-sig-him" class="pv-sig" hidden alt="His signature">
+                        <span class="pv-media-label">His signature</span>
+                    </div>
+                </div>
+                <div class="pv-media-col">
+                    <div class="pv-media-block">
+                        <img id="pv-photo-b" class="pv-photo" hidden alt="Her photo">
+                        <span class="pv-media-label">Her photo</span>
+                    </div>
+                    <div class="pv-media-block">
+                        <img id="pv-sig-her" class="pv-sig" hidden alt="Her signature">
+                        <span class="pv-media-label">Her signature</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detail-row">
+                <span class="detail-label">Permit No.</span>
+                <span id="pv-permit-number" class="detail-value"></span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Status</span>
+                <span id="pv-status" class="detail-value"></span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Verified</span>
+                <span id="pv-verified" class="detail-value"></span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">His name</span>
+                <span id="pv-name-a" class="detail-value"></span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">His email</span>
+                <span id="pv-email-a" class="detail-value"></span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">His DOB</span>
+                <span id="pv-dob-a" class="detail-value"></span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">His profession</span>
+                <span id="pv-profession-a" class="detail-value"></span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Her name</span>
+                <span id="pv-name-b" class="detail-value"></span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Her email</span>
+                <span id="pv-email-b" class="detail-value"></span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Her DOB</span>
+                <span id="pv-dob-b" class="detail-value"></span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Her profession</span>
+                <span id="pv-profession-b" class="detail-value"></span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Issued on</span>
+                <span id="pv-issued-date" class="detail-value"></span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Emergency contact</span>
+                <span id="pv-emergency" class="detail-value"></span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">First met</span>
+                <span id="pv-first-meet" class="detail-value"></span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">First "I love you"</span>
+                <span id="pv-first-ily" class="detail-value"></span>
+            </div>
+            <div class="detail-row" id="pv-married-row">
+                <span class="detail-label">Married date</span>
+                <span id="pv-married-date" class="detail-value"></span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Submitted by</span>
+                <span id="pv-submitted-by" class="detail-value"></span>
+            </div>
+
+            <p id="permit-view-error" class="error-notice" hidden></p>
+
+            <div class="modal-actions">
+                <button id="permit-reject-btn" class="reject-btn" type="button">Reject</button>
+                <button id="permit-view-close-btn" class="secondary-btn" type="button">Close</button>
+                <button id="permit-verify-toggle-btn" type="button">Mark as Verified</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="admin.js"></script>
+
+<a class="mano-return-link" href="../love-permit-card.html" aria-label="Return to ManO CreationS Love Permit Card">← ManO CreationS</a>
+</body>
+
+</html>
