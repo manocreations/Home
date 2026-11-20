@@ -1,99 +1,33 @@
-
-    document.getElementById('imgToggle').addEventListener('click', function () {
-        this.classList.toggle('revealed');
-    });
-
-    const track    = document.getElementById('track');
-    const viewport = document.getElementById('viewport');
-    const nextBtn  = document.getElementById('nextBtn');
-    const dotsEl   = document.getElementById('dots');
-    const swipeHint = document.getElementById('swipeHint');
-    const slides   = Array.from(track.querySelectorAll('.carousel-slide'));
-    const total    = slides.length;
-    let current    = 0;
-
-    slides.forEach(function (_, i) {
-        const d = document.createElement('button');
-        d.className = 'dot' + (i === 0 ? ' active' : '');
-        d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
-        d.addEventListener('click', function () { goTo(i); });
-        dotsEl.appendChild(d);
-    });
-
-    function getOffsets() {
-        var offsets = [], top = 0;
-        slides.forEach(function (s) { offsets.push(top); top += s.scrollHeight; });
-        return offsets;
-    }
-
-    function goTo(index) {
-        current = index;
-        var offsets = getOffsets();
-        viewport.style.height = slides[current].scrollHeight + 'px';
-        track.style.transform = 'translateY(-' + offsets[current] + 'px)';
-        Array.from(dotsEl.querySelectorAll('.dot')).forEach(function (d, i) {
-            d.classList.toggle('active', i === current);
-        });
-
-        var isLast = current >= total - 1;
-
-        // Desktop button state
-        if (isLast) {
-            nextBtn.disabled = true;
-            nextBtn.textContent = "That's the full story ✓";
-        } else {
-            nextBtn.disabled = false;
-            nextBtn.innerHTML = 'Continue reading ›';
-        }
-
-        // Mobile swipe hint state
-        if (swipeHint) {
-            if (isLast) {
-                swipeHint.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> That was my kutty story';
-            } else {
-                swipeHint.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M9 18l-6-6 6-6"/></svg> Swipe to Continue.,';
-            }
-        }
-    }
-
-    function nextSlide() { if (current < total - 1) goTo(current + 1); }
-    function prevSlide() { if (current > 0) goTo(current - 1); }
-
-    // ── Touch / swipe support ──
-    var touchStartX = 0;
-    var touchStartY = 0;
-    var swipeThreshold = 40;   // min horizontal px to count as swipe
-    var directionLocked = null; // 'h' | 'v' — lock axis after first move
-
-    viewport.addEventListener('touchstart', function (e) {
-        touchStartX = e.touches[0].clientX;
-        touchStartY = e.touches[0].clientY;
-        directionLocked = null;
-    }, { passive: true });
-
-    viewport.addEventListener('touchmove', function (e) {
-        if (!directionLocked) {
-            var dx = Math.abs(e.touches[0].clientX - touchStartX);
-            var dy = Math.abs(e.touches[0].clientY - touchStartY);
-            directionLocked = dx > dy ? 'h' : 'v';
-        }
-        // Prevent page scroll only when swiping horizontally
-        if (directionLocked === 'h') {
-            e.preventDefault();
-        }
-    }, { passive: false });
-
-    viewport.addEventListener('touchend', function (e) {
-        if (directionLocked !== 'h') return;
-        var deltaX = e.changedTouches[0].clientX - touchStartX;
-        if (Math.abs(deltaX) < swipeThreshold) return;
-        if (deltaX < 0) {
-            nextSlide(); // swipe left → next
-        } else {
-            prevSlide(); // swipe right → prev
-        }
-    }, { passive: true });
-
-    window.addEventListener('load', function () { goTo(0); });
-    window.addEventListener('resize', function () { goTo(current); });
-
+document.addEventListener('DOMContentLoaded', () => {
+  const portrait = document.getElementById('imgToggle');
+  portrait?.addEventListener('click', () => {const on = portrait.classList.toggle('revealed'); portrait.setAttribute('aria-pressed', String(on));});
+  const viewport = document.getElementById('viewport'), track = document.getElementById('track');
+  const controls = document.getElementById('carouselControls'), dots = document.getElementById('dots'), next = document.getElementById('nextBtn'), hint = document.getElementById('swipeHint');
+  if (!viewport || !track || !controls || !dots || !next) return;
+  const slides = [...track.querySelectorAll('.carousel-slide')]; if (!slides.length) return;
+  let current = 0, startX = 0, startY = 0, locked = null;
+  const buttons = slides.map((slide, i) => {
+    slide.id = 'founder-story-' + (i + 1);
+    const btn = document.createElement('button'); btn.type = 'button'; btn.className = 'dot'; btn.setAttribute('aria-label', 'Read story part ' + (i + 1));
+    btn.setAttribute('aria-controls',slide.id); btn.addEventListener('click', () => goTo(i));dots.appendChild(btn);return btn;
+  });
+  function goTo(i) {
+    current = Math.max(0,Math.min(slides.length - 1,i));
+    const offsets = slides.map(s => s.offsetTop - slides[0].offsetTop);
+    viewport.style.height = slides[current].offsetHeight + 'px';
+    track.style.transform = `translateY(-${offsets[current]}px)`;
+    slides.forEach((slide,j) => {slide.setAttribute('aria-hidden',String(j!==current));slide.inert = j!==current;});
+    buttons.forEach((btn,j)=>{btn.classList.toggle('active',j===current);btn.setAttribute('aria-current',j===current?'step':'false');});
+    next.disabled = current===slides.length-1;
+    next.textContent = next.disabled ? 'That’s the full story ✓' : 'Continue reading ›';
+    if(hint) hint.textContent = next.disabled?'That was my kutty story':'Swipe left to continue';
+  }
+  document.body.classList.add('js-carousel');controls.hidden=false;
+  next.addEventListener('click', () => goTo(current+1));
+  viewport.addEventListener('touchstart', e => {startX=e.touches[0].clientX;startY=e.touches[0].clientY;locked=null;},{passive:true});
+  viewport.addEventListener('touchmove',e=>{const dx=Math.abs(e.touches[0].clientX-startX),dy=Math.abs(e.touches[0].clientY-startY);if(!locked && Math.max(dx,dy)>8)locked=dx>dy?'h':'v';if(locked==='h'&&e.cancelable)e.preventDefault();},{passive:false});
+  viewport.addEventListener('touchend',e=>{if(locked!=='h')return;const dx=e.changedTouches[0].clientX-startX;if(Math.abs(dx)>=40)goTo(current+(dx<0?1:-1));},{passive:true});
+  viewport.addEventListener('keydown', e => {if(e.key==='ArrowRight'){goTo(current+1);e.preventDefault();}else if(e.key==='ArrowLeft'){goTo(current-1);e.preventDefault();}});
+  window.addEventListener('resize', () => goTo(current));
+  goTo(0);
+});
