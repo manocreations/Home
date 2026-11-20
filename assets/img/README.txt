@@ -7,7 +7,7 @@ Brand
   apple-touch-icon.png   180x180 (iPhone home screen)
 
 Founder (about-founder.html)
-  founder.jpg            square photo, about 600x600
+  founder.jpeg            square photo, about 600x600
   founder-vector.png     square illustration version, about 600x600
 
 Portfolio logo strip (portfolio.html), transparent PNG, about 300px wide
