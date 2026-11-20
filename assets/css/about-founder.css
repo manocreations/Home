@@ -1,1 +1,135 @@
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f8f9fa;color:#1a1a1a;font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;line-height:1.65}a{color:#a60000}a:focus-visible,button:focus-visible{outline:3px solid #b00000;outline-offset:4px}.skip-link{position:absolute;left:-9999px;top:0;background:white;padding:12px}.skip-link:focus{left:12px;z-index:10}.page{max-width:1440px;margin:auto;padding:28px 40px}.site-head{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center;border-bottom:1px solid #ddd;padding-bottom:18px}.site-head>a{font-weight:800;text-decoration:none;color:#222}.site-head nav{display:flex;flex-wrap:wrap;gap:14px}.site-head nav a{font-size:14px;text-decoration:none}.breadcrumbs{font-size:13px;margin:22px 0 30px}.top-row{display:grid;grid-template-columns:280px minmax(0,1fr);gap:48px;align-items:start}.founder-block{text-align:center}.founder-block h1{font-size:clamp(24px,3vw,34px);line-height:1.2;margin:15px 0 10px}.brand-tag{color:#b00000;font-weight:700;letter-spacing:.04em}.hint-text{color:#666;font-size:12px}.image-container{position:relative;display:block;margin:auto;width:208px;height:208px;overflow:hidden;border-radius:50%;border:4px solid #fff;cursor:pointer;box-shadow:0 10px 25px #0002;background:#eee}.image-container img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .35s}.vector-img{opacity:1;z-index:2}.real-img{opacity:1;z-index:1}.image-container:hover .vector-img,.image-container.revealed .vector-img{opacity:0}.story-heading{font-size:clamp(21px,2.5vw,29px);margin:0 0 8px}.intro{margin:0 0 20px;color:#454545}.carousel-slide{margin:0 0 22px;color:#444}.carousel-slide h2{font-size:19px;line-height:1.4;color:#222;margin:0 0 6px}.carousel-slide p{font-size:clamp(16px,1.5vw,19px);line-height:1.8;margin:0}.carousel-controls{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:12px}.carousel-dots{display:flex;gap:8px}.dot{min-width:25px;min-height:25px;border:0;border-radius:12px;background:#d5d5d5;cursor:pointer}.dot.active{background:#ac0000}.readmore-btn{background:none;border:0;color:#ae0000;font-weight:700;cursor:pointer;padding:9px}.readmore-btn:disabled{color:#666;cursor:default}.swipe-hint{display:none;color:#555;font-size:12px}.js-carousel .carousel-viewport{overflow:hidden;transition:height .4s}.js-carousel .carousel-track{display:flex;flex-direction:column;transition:transform .4s}.js-carousel .carousel-slide{margin:0;flex-shrink:0;padding-bottom:4px}.details,.explore{border-top:1px solid #ddd;margin-top:36px;padding-top:19px}.details h2,.explore h2{font-size:20px}.details-row{display:flex;flex-wrap:wrap;gap:10px;margin:0}.detail-item{flex:1 1 180px;padding:0 18px;border-right:1px solid #ddd}.detail-item:first-child{padding-left:0}.detail-item:last-child{border:0}.detail-item dt{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:#666}.detail-item dd{margin:4px 0;font-weight:700}footer{margin-top:35px;border-top:1px solid #ddd;padding-top:15px;color:#666;font-size:13px}@media(max-width:680px){.page{padding:20px}.top-row{grid-template-columns:1fr;gap:24px}.carousel-slide p{font-size:16px}.swipe-hint{display:block}.js-carousel .readmore-btn{display:none}.detail-item{padding:0;border:0;flex-basis:40%}.site-head nav{gap:9px}.hint-text{font-size:12px}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition:none!important;scroll-behavior:auto!important}}
+/* Plain empty header: no brand, navigation, or breadcrumb text. */
+.site-head{min-height:24px;border-bottom:0;padding-bottom:0;margin-bottom:24px}
+/* Compact founder page: keep the full 'About the founder' information in view on desktop. */
+@media (min-width:681px){
+  .page{padding-top:12px}
+  .site-head{min-height:0;margin-bottom:12px;padding:0}
+  .top-row{gap:32px}
+  .image-container{width:164px;height:164px}
+  .founder-block h1{font-size:28px;margin:10px 0 5px}
+  .brand-tag{margin:8px 0;font-size:15px;line-height:1.45}
+  .hint-text{margin:8px 0;font-size:11px}
+  .intro{margin-bottom:12px}
+  .carousel-controls{padding-top:6px}
+  .details{margin-top:12px;padding-top:8px}
+  .details h2{margin:8px 0 10px}
+  .detail-item dd{margin:2px 0}
+}
+@media (max-width:680px){
+  .site-head{min-height:0;margin-bottom:8px}
+  .details{margin-top:14px;padding-top:10px}
+}
+
+/* Keep the story and founder facts together in the initial viewport.
+   All remaining page sections begin on scroll. */
+.first-screen{min-height:calc(100svh - 28px);display:flex;flex-direction:column}
+.first-screen .details{flex-shrink:0}
+.explore{margin-top:0}
+@media(max-width:680px){.first-screen{min-height:calc(100svh - 40px)}}
+
+/* Founder portrait increased by 50% while preserving the circular crop. */
+@media (min-width:681px){
+  .image-container{width:246px;height:246px}
+}
+@media (max-width:680px){
+  .image-container{width:312px;height:312px;max-width:90vw;max-height:90vw}
+}
+
+
+/* Dark + gold theme. Content, layout, circular portrait and behavior preserved. */
+:root{color-scheme:dark;--night:#101113;--night-deep:#0b0c0e;--gold:#ffca20;--gold-soft:#efd37b;--text:#f6f6f7;--muted:#c4c5c9;--hairline:#333438}
+html{background:var(--night-deep)}
+body{background:radial-gradient(ellipse 80% 45% at 50% 25%,#1d1e21 0%,var(--night) 72%,var(--night-deep) 100%);color:var(--text)}
+a{color:var(--gold)}
+a:hover{color:#ffe58b}
+a:focus-visible,button:focus-visible{outline-color:var(--gold)}
+.site-head{background:transparent;border:0}
+.founder-block h1{color:var(--text)}
+.brand-tag{color:var(--gold)}
+.hint-text,.swipe-hint{color:#a4a6ac}
+.image-container{border-color:#3a3a3b;background:#1d1d1f;box-shadow:0 0 0 2px rgba(255,202,32,.35),0 15px 40px #0009}
+.story-heading{color:var(--text);position:relative;padding-bottom:13px}
+.story-heading:after{content:"";position:absolute;bottom:0;left:0;width:116px;height:3px;border-radius:4px;background:var(--gold)}
+.intro,.carousel-slide,.carousel-slide p{color:var(--muted)}
+.carousel-slide h2{color:var(--text)}
+.dot{background:#45464c}
+.dot.active{background:var(--gold)}
+.readmore-btn{color:var(--gold);border:1px solid var(--gold);border-radius:999px;padding:9px 19px}
+.readmore-btn:hover:not(:disabled){background:#ffca201c}
+.readmore-btn:disabled{color:#7c7d81;border-color:#45464c}
+.details,.explore,footer{border-top-color:var(--hairline)}
+.details h2,.explore h2{color:var(--text)}
+.detail-item{border-right-color:var(--hairline)}
+.detail-item dt,footer{color:#a5a6aa}
+.detail-item dd{color:var(--text)}
+::selection{background:#ffca2060;color:#fff}
+
+
+/* Balanced, centered composition with generous and symmetrical whitespace. */
+@media (min-width: 901px) {
+  .page { max-width: 1320px; width: 100%; margin-inline: auto; padding: 28px clamp(40px, 5vw, 84px) 40px; }
+  .site-head { display: none; }
+  .first-screen {
+    min-height: calc(100svh - 68px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: clamp(22px, 3vh, 36px);
+    padding-block: 18px 34px;
+  }
+  .top-row {
+    grid-template-columns: minmax(250px, 29%) minmax(0, 1fr);
+    column-gap: clamp(40px, 5vw, 72px);
+    align-items: center;
+  }
+  .founder-block { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .founder-block h1 { max-width: 300px; }
+  .story-block { width: 100%; }
+  .details { margin-top: 0; padding-top: 18px; }
+  .details h2 { margin: 4px 0 15px; }
+  .details-row { gap: 0; }
+  .detail-item { padding-inline: 18px; }
+  .detail-item:first-child { padding-left: 0; }
+  .detail-item:last-child { padding-right: 0; }
+}
+@media (min-width:681px) and (max-width:900px) {
+  .page { padding: 26px 36px 36px; }
+  .site-head { display:none; }
+  .first-screen { justify-content:center; gap: 22px; min-height: calc(100svh - 62px); padding-block:18px; }
+  .top-row { grid-template-columns: 235px minmax(0,1fr); gap: 34px; align-items:center; }
+  .image-container { width: 220px; height: 220px; }
+  .details { margin-top:0; }
+}
+@media (max-width: 680px) {
+  .page { width: 100%; padding: 25px 24px 34px; }
+  .site-head { display:none; }
+  .first-screen { min-height: calc(100svh - 59px); justify-content:center; gap: 24px; padding-block:18px 30px; }
+  .top-row { gap: 24px; }
+  .details { margin-top:0; }
+  .details-row { gap:14px; }
+  .detail-item { flex: 1 1 calc(50% - 14px); }
+}
+
+/* Back-to-home action beside Explore heading; balanced across screen sizes. */
+.explore-heading-row{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.explore-heading-row h2{margin:0}
+.back-home-btn{display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;border:1px solid var(--gold);border-radius:999px;padding:10px 20px;color:var(--gold);font-size:14px;font-weight:700;text-decoration:none;transition:background .2s ease,color .2s ease}
+.back-home-btn:hover{background:var(--gold);color:var(--night-deep)}
+@media(max-width:480px){.explore-heading-row{align-items:flex-start;gap:12px}.back-home-btn{padding:8px 14px;font-size:13px}}
+
+/* Remove all circular portrait outlines while preserving round cropping. */
+.image-container{border:0!important;outline:0;box-shadow:0 15px 40px rgba(0,0,0,.4)!important;}
+.image-container img{border:0!important;outline:0!important;box-shadow:none!important;}
+
+/* Vertically center Back to Home against the entire Explore section (heading + description). */
+@media (min-width: 681px) {
+  .explore { position: relative; padding-right: 190px; }
+  .explore-heading-row { display: block; }
+  .explore .back-home-btn {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
