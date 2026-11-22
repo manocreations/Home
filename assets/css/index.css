@@ -359,3 +359,10 @@ footer a:hover{color:var(--cobalt);}
 @media(max-width:1050px){.site-header-inner{min-height:65px}.site-nav{gap:0}.venture-inner{grid-template-columns:1fr}}
 @media(max-width:700px){:root{--gutter:20px}.site-pages{padding:54px 20px 55px}.site-page-card{min-height:155px}.venture-inner{padding:40px 20px}.venture-links{grid-template-columns:1fr}.main-footer{grid-template-columns:1fr;padding:34px 20px}.copyright{grid-column:auto}.hero{padding-top:62px}.hero-actions{gap:12px}.hero-sub{font-size:16px}.site-nav a{font-size:14px}}
 @media(prefers-reduced-motion:reduce){.site-page-card,.venture-links a{transition:none}}
+
+/* Brand logo sizing */
+.site-brand{display:inline-flex;align-items:center}
+.brand-logo-img{height:38px;width:auto;max-width:none;flex-shrink:0;display:block;margin-right:10px}
+.footer-brand strong{display:inline-flex;align-items:center}
+.footer-brand .brand-logo-img{height:30px}
+@media(max-width:700px){.brand-logo-img{height:30px}.footer-brand .brand-logo-img{height:26px}}
