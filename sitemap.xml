@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.manocreations.com/</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url><loc>https://www.manocreations.com/</loc><image:image><image:loc>https://www.manocreations.com/assets/img/logo.png</image:loc></image:image></url>
   <url><loc>https://www.manocreations.com/services.html</loc></url>
   <url><loc>https://www.manocreations.com/portfolio.html</loc></url>
   <url><loc>https://www.manocreations.com/pricing.html</loc></url>
   <url><loc>https://www.manocreations.com/about-us.html</loc></url>
-  <url><loc>https://www.manocreations.com/about-founder.html</loc></url>
+  <url><loc>https://www.manocreations.com/about-founder.html</loc><image:image><image:loc>https://www.manocreations.com/assets/img/manoj-thiruchelvam-founder.jpeg</image:loc></image:image></url>
   <url><loc>https://www.manocreations.com/timeline.html</loc></url>
   <url><loc>https://www.manocreations.com/logo-style.html</loc></url>
   <url><loc>https://www.manocreations.com/love-permit-card.html</loc></url>
