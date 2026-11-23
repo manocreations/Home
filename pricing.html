@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
 <title>Design Pricing | ManO CreationS</title>
 <link rel="stylesheet" href="assets/css/pricing.css">
 <meta name="description" content="See starting prices for logo design, brand identity, stationery, packaging and other creative services.">
@@ -12,38 +12,168 @@
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <script src="assets/js/favicon.js"></script>
 </head><body><div class='wrap'>
-<h1>ManO CreationS</h1><p>Simple, transparent pricing for creative design services.</p>
-<table><tr><th>Service</th><th>Starting From</th></tr>
-<tr><td>Logo Design</td><td>₹1,499</td></tr>
-<tr><td>Premium Logo</td><td>₹3,999</td></tr>
-<tr><td>Brand Identity</td><td>₹7,999</td></tr>
-<tr><td>Business Card</td><td>₹499</td></tr>
-<tr><td>Letterhead</td><td>₹399</td></tr>
-<tr><td>Envelope</td><td>₹349</td></tr>
-<tr><td>Invoice Design</td><td>₹399</td></tr>
-<tr><td>Stationery Kit</td><td>₹1,499</td></tr>
-<tr><td>Flyer / Poster</td><td>₹799</td></tr>
-<tr><td>Bi‑Fold Brochure</td><td>₹1,499</td></tr>
-<tr><td>Tri‑Fold Brochure</td><td>₹1,999</td></tr>
-<tr><td>Company Profile (Per Page)</td><td>₹299</td></tr>
-<tr><td>Product Catalog (Per Page)</td><td>₹349</td></tr>
-<tr><td>Packaging Design</td><td>₹2,499</td></tr>
-<tr><td>Label Design</td><td>₹999</td></tr>
-<tr><td>Social Media Post</td><td>₹199</td></tr>
-<tr><td>10 Social Posts</td><td>₹1,799</td></tr>
-<tr><td>Banner / Flex</td><td>₹799</td></tr>
-<tr><td>Standee</td><td>₹999</td></tr>
-<tr><td>Menu Card</td><td>₹999</td></tr>
-<tr><td>Certificate</td><td>₹399</td></tr>
-<tr><td>ID Card</td><td>₹349</td></tr>
-<tr><td>Invitation Card</td><td>₹799</td></tr>
-<tr><td>Presentation (Per Slide)</td><td>₹149</td></tr>
-<tr><td>Custom Font Design</td><td>₹699</td></tr>
-<tr><td>Custom Illustration</td><td>From ₹1,499</td></tr>
-<tr><td>Brand Guidelines</td><td>From ₹3,999</td></tr></table>
-<div class='cards'>
-<div class='card'><h3>Starter</h3><div class='price'>₹4,999</div><p>Logo, Card, Letterhead, Social Kit.</p></div>
-<div class='card'><h3>Business</h3><div class='price'>₹9,999</div><p>Premium Logo, Stationery, Social Kit.</p></div>
-<div class='card'><h3>Premium</h3><div class='price'>₹19,999+</div><p>Complete brand identity & guidelines.</p></div>
-</div></div><footer>© ManO CreationS</footer><script src="assets/js/site-navigation.js" defer></script>
+<header><h1>ManO CreationS</h1><p class='lead'>Simple, transparent pricing for creative design services.</p>
+<ol class='steps'><li>Pick the services you need</li><li>Review your quote</li><li>Download it as PDF or image</li></ol></header>
+<div class='layout'><main>
+<div class='tools'><label class='sr' for='q'>Search services</label><input id='q' type='search' placeholder='Search services, e.g. logo, brochure, sticker' autocomplete='off'>
+<p class='note'>All prices are starting prices. The final quote depends on scope, revisions and turnaround.</p></div>
+<nav class='tabs' aria-label='Service categories'><button type='button' class='tab' data-tab='packs' aria-pressed='false'>Packs</button><button type='button' class='tab' data-tab='brand' aria-pressed='false'>Brand &amp; logo</button><button type='button' class='tab' data-tab='type' aria-pressed='false'>Fonts &amp; motion</button><button type='button' class='tab' data-tab='stationery' aria-pressed='false'>Stationery</button><button type='button' class='tab' data-tab='print' aria-pressed='false'>Print &amp; packaging</button><button type='button' class='tab' data-tab='digital' aria-pressed='false'>Digital &amp; website</button><button type='button' class='tab' data-tab='templates' aria-pressed='false'>Templates</button><button type='button' class='tab' data-tab='extras' aria-pressed='false'>Add-ons &amp; support</button></nav>
+<p id='none' hidden>No services match your search. Try a shorter or different word.</p>
+<section class='group' data-group='packs'><h2>Complete packs</h2>
+<div class='sub'><p class='intro'>Bundles of the services above, priced together for the best value.</p><div class='cards'>
+<div class='card' data-s='starter pack logo, business card, letterhead, social kit.' data-name='Starter pack' data-price='4999' data-plus='0'><h3>Starter</h3><div class='price'>₹4,999</div><p>Logo, Business Card, Letterhead, Social Kit.</p><div class='ctl'></div></div>
+<div class='card' data-s='business pack premium logo, stationery kit, social kit.' data-name='Business pack' data-price='9999' data-plus='0'><h3>Business</h3><div class='price'>₹9,999</div><p>Premium Logo, Stationery Kit, Social Kit.</p><div class='ctl'></div></div>
+<div class='card' data-s='premium pack complete brand identity &amp; guidelines.' data-name='Premium pack' data-price='19999' data-plus='1'><h3>Premium</h3><div class='price'>₹19,999+</div><p>Complete brand identity &amp; guidelines.</p><div class='ctl'></div></div>
+</div></div>
+</section>
+<section class='group' data-group='brand'><h2>Brand &amp; logo</h2>
+<div class='sub'><h3>Brand strategy &amp; verbal identity</h3><p class='intro'>Decide who you are and how you sound before you design how you look.</p><ul class='list'>
+<li class='svc' data-s='brand positioning &amp; audience personas ' data-name='Brand Positioning &amp; Audience Personas' data-price='2499'><span class='t'>Brand Positioning &amp; Audience Personas</span><span class='r'><span class='p'>₹2,499</span><span class=ctl></span></span></li>
+<li class='svc' data-s='value proposition &amp; elevator pitch ' data-name='Value Proposition &amp; Elevator Pitch' data-price='999'><span class='t'>Value Proposition &amp; Elevator Pitch</span><span class='r'><span class='p'>₹999</span><span class=ctl></span></span></li>
+<li class='svc' data-s='tagline / slogan options ' data-name='Tagline / Slogan Options' data-price='799'><span class='t'>Tagline / Slogan Options</span><span class='r'><span class='p'>₹799</span><span class=ctl></span></span></li>
+<li class='svc' data-s='brand voice &amp; tone guidelines how to write across web, product and support' data-name='Brand Voice &amp; Tone Guidelines' data-price='1499'><span class='t'>Brand Voice &amp; Tone Guidelines<small>How to write across web, product and support</small></span><span class='r'><span class='p'>₹1,499</span><span class=ctl></span></span></li>
+</ul></div>
+<div class='sub'><h3>Logo &amp; brand identity</h3><p class='intro'>The foundation. Start here if you are building a brand from scratch.</p><ul class='list'>
+<li class='svc' data-s='logo design ' data-name='Logo Design' data-price='1499'><span class='t'>Logo Design</span><span class='r'><span class='p'>₹1,499</span><span class=ctl></span></span></li>
+<li class='svc' data-s='premium logo ' data-name='Premium Logo' data-price='3999'><span class='t'>Premium Logo</span><span class='r'><span class='p'>₹3,999</span><span class=ctl></span></span></li>
+<li class='svc' data-s='brand identity ' data-name='Brand Identity' data-price='7999'><span class='t'>Brand Identity</span><span class='r'><span class='p'>₹7,999</span><span class=ctl></span></span></li>
+<li class='svc' data-s='brand guidelines ' data-name='Brand Guidelines' data-price='3999'><span class='t'>Brand Guidelines</span><span class='r'><span class='p'>From ₹3,999</span><span class=ctl></span></span></li>
+<li class='svc' data-s='custom illustration ' data-name='Custom Illustration' data-price='1499'><span class='t'>Custom Illustration</span><span class='r'><span class='p'>From ₹1,499</span><span class=ctl></span></span></li>
+<li class='svc' data-s='secondary logo / brand mark standalone symbol' data-name='Secondary Logo / Brand Mark' data-price='999'><span class='t'>Secondary Logo / Brand Mark<small>Standalone symbol</small></span><span class='r'><span class='p'>₹999</span><span class=ctl></span></span></li>
+<li class='svc' data-s='wordmark text-only logo' data-name='Wordmark' data-price='999'><span class='t'>Wordmark<small>Text-only logo</small></span><span class='r'><span class='p'>₹999</span><span class=ctl></span></span></li>
+<li class='svc' data-s='favicon &amp; app icon ios and android adaptive sizes' data-name='Favicon &amp; App Icon' data-price='799'><span class='t'>Favicon &amp; App Icon<small>iOS and Android adaptive sizes</small></span><span class='r'><span class='p'>₹799</span><span class=ctl></span></span></li>
+<li class='svc' data-s='logo variations &amp; file formats full colour, black, white; svg, ai, eps, png, jpg'><span class='t'>Logo Variations &amp; File Formats<small>Full colour, black, white; SVG, AI, EPS, PNG, JPG</small></span><span class='r'><span class='p inc'>Included</span></span></li>
+<li class='svc' data-s='colour palette primary, secondary and neutral; hex, rgb, cmyk, pantone' data-name='Colour Palette' data-price='799'><span class='t'>Colour Palette<small>Primary, secondary and neutral; HEX, RGB, CMYK, Pantone</small></span><span class='r'><span class='p'>₹799</span><span class=ctl></span></span></li>
+<li class='svc' data-s='dark mode palette &amp; inverted logo rules ' data-name='Dark Mode Palette &amp; Inverted Logo Rules' data-price='799'><span class='t'>Dark Mode Palette &amp; Inverted Logo Rules</span><span class='r'><span class='p'>₹799</span><span class=ctl></span></span></li>
+<li class='svc' data-s='accessibility contrast matrix (wcag) approved readable text and background pairs' data-name='Accessibility Contrast Matrix (WCAG)' data-price='699'><span class='t'>Accessibility Contrast Matrix (WCAG)<small>Approved readable text and background pairs</small></span><span class='r'><span class='p'>₹699</span><span class=ctl></span></span></li>
+<li class='svc' data-s='icon library &amp; brand patterns custom icons, patterns and textures' data-name='Icon Library &amp; Brand Patterns' data-price='1999'><span class='t'>Icon Library &amp; Brand Patterns<small>Custom icons, patterns and textures</small></span><span class='r'><span class='p'>From ₹1,999</span><span class=ctl></span></span></li>
+<li class='svc' data-s='art direction rules photography, 3d / product render and illustration' data-name='Art Direction Rules' data-price='1499'><span class='t'>Art Direction Rules<small>Photography, 3D / product render and illustration</small></span><span class='r'><span class='p'>₹1,499</span><span class=ctl></span></span></li>
+<li class='svc' data-s='master brand style guide (interactive web) logo clear space, minimum size, do and don&#x27;t rules, grid standards' data-name='Master Brand Style Guide (Interactive Web)' data-price='5999'><span class='t'>Master Brand Style Guide (Interactive Web)<small>Logo clear space, minimum size, do and don't rules, grid standards</small></span><span class='r'><span class='p'>From ₹5,999</span><span class=ctl></span></span></li>
+</ul></div>
+</section>
+<section class='group' data-group='type'><h2>Fonts &amp; motion</h2>
+<div class='sub'><h3>Custom fonts &amp; typography</h3><p class='intro'>A typeface that belongs only to you, with the rules to use it well.</p><ul class='list'>
+<li class='svc' data-s='custom font design bespoke brand or display typeface' data-name='Custom Font Design' data-price='699'><span class='t'>Custom Font Design<small>Bespoke brand or display typeface</small></span><span class='r'><span class='p'>₹699</span><span class=ctl></span></span></li>
+<li class='svc' data-s='font weights &amp; variable font regular, medium, bold, italic plus a variable font file' data-name='Font Weights &amp; Variable Font' data-price='1499'><span class='t'>Font Weights &amp; Variable Font<small>Regular, Medium, Bold, Italic plus a Variable Font file</small></span><span class='r'><span class='p'>₹1,499</span><span class=ctl></span></span></li>
+<li class='svc' data-s='custom glyph &amp; character set numerals, punctuation, ₹ / $ symbols and custom ligatures' data-name='Custom Glyph &amp; Character Set' data-price='999'><span class='t'>Custom Glyph &amp; Character Set<small>Numerals, punctuation, ₹ / $ symbols and custom ligatures</small></span><span class='r'><span class='p'>₹999</span><span class=ctl></span></span></li>
+<li class='svc' data-s='font files otf, ttf for desktop; woff2, woff for web'><span class='t'>Font Files<small>OTF, TTF for desktop; WOFF2, WOFF for web</small></span><span class='r'><span class='p inc'>Included with custom font</span></span></li>
+<li class='svc' data-s='typography hierarchy rules sizes, line heights and letter spacing for h1–h6, body, captions and buttons' data-name='Typography Hierarchy Rules' data-price='799'><span class='t'>Typography Hierarchy Rules<small>Sizes, line heights and letter spacing for H1–H6, body, captions and buttons</small></span><span class='r'><span class='p'>₹799</span><span class=ctl></span></span></li>
+<li class='svc' data-s='fallback fonts setup google or system fonts for emails, word / docs and low-bandwidth devices' data-name='Fallback Fonts Setup' data-price='499'><span class='t'>Fallback Fonts Setup<small>Google or system fonts for emails, Word / Docs and low-bandwidth devices</small></span><span class='r'><span class='p'>₹499</span><span class=ctl></span></span></li>
+<li class='svc' data-s='font ownership &amp; licences exclusive ip for custom fonts; third-party licences at actual cost'><span class='t'>Font Ownership &amp; Licences<small>Exclusive IP for custom fonts; third-party licences at actual cost</small></span><span class='r'><span class='p inc'>Included</span></span></li>
+</ul></div>
+<div class='sub'><h3>Motion &amp; sonic branding</h3><p class='intro'>Bring the brand to life in videos, demos and product screens.</p><ul class='list'>
+<li class='svc' data-s='animated logo reveal mp4, mov, lottie / json and gif' data-name='Animated Logo Reveal' data-price='2499'><span class='t'>Animated Logo Reveal<small>MP4, MOV, Lottie / JSON and GIF</small></span><span class='r'><span class='p'>₹2,499</span><span class=ctl></span></span></li>
+<li class='svc' data-s='ui micro-interaction guidelines button hovers, loaders and page transitions' data-name='UI Micro-Interaction Guidelines' data-price='1999'><span class='t'>UI Micro-Interaction Guidelines<small>Button hovers, loaders and page transitions</small></span><span class='r'><span class='p'>₹1,999</span><span class=ctl></span></span></li>
+<li class='svc' data-s='sonic / audio logo 1–3 second brand chime' data-name='Sonic / Audio Logo' data-price='1499'><span class='t'>Sonic / Audio Logo<small>1–3 second brand chime</small></span><span class='r'><span class='p'>₹1,499</span><span class=ctl></span></span></li>
+</ul></div>
+</section>
+<section class='group' data-group='stationery'><h2>Business stationery</h2>
+<div class='sub'><h3>Business stationery</h3><p class='intro'>Everything your business hands over, signs or sends.</p><ul class='list'>
+<li class='svc' data-s='business card name, job title and key contact details' data-name='Business Card' data-price='499'><span class='t'>Business Card<small>Name, job title and key contact details</small></span><span class='r'><span class='p'>₹499</span><span class=ctl></span></span></li>
+<li class='svc' data-s='letterhead a4 or us letter; print-ready pdf plus editable word and google docs templates' data-name='Letterhead' data-price='399'><span class='t'>Letterhead<small>A4 or US Letter; print-ready PDF plus editable Word and Google Docs templates</small></span><span class='r'><span class='p'>₹399</span><span class=ctl></span></span></li>
+<li class='svc' data-s='envelope dl, c4 or c5 to match your letterhead' data-name='Envelope' data-price='349'><span class='t'>Envelope<small>DL, C4 or C5 to match your letterhead</small></span><span class='r'><span class='p'>₹349</span><span class=ctl></span></span></li>
+<li class='svc' data-s='invoice, quote &amp; receipt templates ' data-name='Invoice, Quote &amp; Receipt Templates' data-price='399'><span class='t'>Invoice, Quote &amp; Receipt Templates</span><span class='r'><span class='p'>₹399</span><span class=ctl></span></span></li>
+<li class='svc' data-s='receipt / ncr pad carbonless duplicate books for quotes, delivery notes and receipts' data-name='Receipt / NCR Pad' data-price='499'><span class='t'>Receipt / NCR Pad<small>Carbonless duplicate books for quotes, delivery notes and receipts</small></span><span class='r'><span class='p'>₹499</span><span class=ctl></span></span></li>
+<li class='svc' data-s='compliment slip ' data-name='Compliment Slip' data-price='299'><span class='t'>Compliment Slip</span><span class='r'><span class='p'>₹299</span><span class=ctl></span></span></li>
+<li class='svc' data-s='thank-you card small branded notes for deliveries, gifts and follow-ups' data-name='Thank-You Card' data-price='349'><span class='t'>Thank-You Card<small>Small branded notes for deliveries, gifts and follow-ups</small></span><span class='r'><span class='p'>₹349</span><span class=ctl></span></span></li>
+<li class='svc' data-s='presentation folder pocketed folder for proposals, contracts and brochures' data-name='Presentation Folder' data-price='899'><span class='t'>Presentation Folder<small>Pocketed folder for proposals, contracts and brochures</small></span><span class='r'><span class='p'>₹899</span><span class=ctl></span></span></li>
+<li class='svc' data-s='notepad custom-printed pads for meetings, workshops and giveaways' data-name='Notepad' data-price='399'><span class='t'>Notepad<small>Custom-printed pads for meetings, workshops and giveaways</small></span><span class='r'><span class='p'>₹399</span><span class=ctl></span></span></li>
+<li class='svc' data-s='sticky notes ' data-name='Sticky Notes' data-price='349'><span class='t'>Sticky Notes</span><span class='r'><span class='p'>₹349</span><span class=ctl></span></span></li>
+<li class='svc' data-s='id card ' data-name='ID Card' data-price='349'><span class='t'>ID Card</span><span class='r'><span class='p'>₹349</span><span class=ctl></span></span></li>
+<li class='svc' data-s='id badge &amp; lanyard employee id matched to your colours and typography' data-name='ID Badge &amp; Lanyard' data-price='499'><span class='t'>ID Badge &amp; Lanyard<small>Employee ID matched to your colours and typography</small></span><span class='r'><span class='p'>₹499</span><span class=ctl></span></span></li>
+<li class='svc' data-s='certificate ' data-name='Certificate' data-price='399'><span class='t'>Certificate</span><span class='r'><span class='p'>₹399</span><span class=ctl></span></span></li>
+<li class='svc' data-s='stationery kit ' data-name='Stationery Kit' data-price='1499'><span class='t'>Stationery Kit</span><span class='r'><span class='p'>₹1,499</span><span class=ctl></span></span></li>
+<li class='svc' data-s='founder &amp; team swag print files t-shirts, hoodies, laptop stickers, notebooks and event standees' data-name='Founder &amp; Team Swag Print Files' data-price='799'><span class='t'>Founder &amp; Team Swag Print Files<small>T-shirts, hoodies, laptop stickers, notebooks and event standees</small></span><span class='r'><span class='p'>From ₹799</span><span class=ctl></span></span></li>
+</ul></div>
+</section>
+<section class='group' data-group='print'><h2>Print &amp; packaging</h2>
+<div class='sub'><h3>Marketing &amp; print</h3><p class='intro'>Print pieces that promote, inform and invite.</p><ul class='list'>
+<li class='svc' data-s='flyer / poster ' data-name='Flyer / Poster' data-price='799'><span class='t'>Flyer / Poster</span><span class='r'><span class='p'>₹799</span><span class=ctl></span></span></li>
+<li class='svc' data-s='bi‑fold brochure ' data-name='Bi‑Fold Brochure' data-price='1499'><span class='t'>Bi‑Fold Brochure</span><span class='r'><span class='p'>₹1,499</span><span class=ctl></span></span></li>
+<li class='svc' data-s='tri‑fold brochure ' data-name='Tri‑Fold Brochure' data-price='1999'><span class='t'>Tri‑Fold Brochure</span><span class='r'><span class='p'>₹1,999</span><span class=ctl></span></span></li>
+<li class='svc' data-s='company profile (per page) ' data-name='Company Profile (Per Page)' data-price='299'><span class='t'>Company Profile (Per Page)</span><span class='r'><span class='p'>₹299</span><span class=ctl></span></span></li>
+<li class='svc' data-s='product catalog (per page) ' data-name='Product Catalog (Per Page)' data-price='349'><span class='t'>Product Catalog (Per Page)</span><span class='r'><span class='p'>₹349</span><span class=ctl></span></span></li>
+<li class='svc' data-s='banner / flex ' data-name='Banner / Flex' data-price='799'><span class='t'>Banner / Flex</span><span class='r'><span class='p'>₹799</span><span class=ctl></span></span></li>
+<li class='svc' data-s='standee ' data-name='Standee' data-price='999'><span class='t'>Standee</span><span class='r'><span class='p'>₹999</span><span class=ctl></span></span></li>
+<li class='svc' data-s='menu card ' data-name='Menu Card' data-price='999'><span class='t'>Menu Card</span><span class='r'><span class='p'>₹999</span><span class=ctl></span></span></li>
+<li class='svc' data-s='invitation card ' data-name='Invitation Card' data-price='799'><span class='t'>Invitation Card</span><span class='r'><span class='p'>₹799</span><span class=ctl></span></span></li>
+</ul></div>
+<div class='sub'><h3>Packaging, labels &amp; stamps</h3><p class='intro'>What your customer sees when the order arrives.</p><ul class='list'>
+<li class='svc' data-s='packaging design includes dielines' data-name='Packaging Design' data-price='2499'><span class='t'>Packaging Design<small>Includes dielines</small></span><span class='r'><span class='p'>₹2,499</span><span class=ctl></span></span></li>
+<li class='svc' data-s='label design ' data-name='Label Design' data-price='999'><span class='t'>Label Design</span><span class='r'><span class='p'>₹999</span><span class=ctl></span></span></li>
+<li class='svc' data-s='sticker / seal logo seals for tissue paper, boxes and mailers' data-name='Sticker / Seal' data-price='299'><span class='t'>Sticker / Seal<small>Logo seals for tissue paper, boxes and mailers</small></span><span class='r'><span class='p'>₹299</span><span class=ctl></span></span></li>
+<li class='svc' data-s='packaging insert care instructions, discount cards or thank-you inserts' data-name='Packaging Insert' data-price='399'><span class='t'>Packaging Insert<small>Care instructions, discount cards or thank-you inserts</small></span><span class='r'><span class='p'>₹399</span><span class=ctl></span></span></li>
+<li class='svc' data-s='rubber stamp document verification, address or minimalist packaging stamp' data-name='Rubber Stamp' data-price='349'><span class='t'>Rubber Stamp<small>Document verification, address or minimalist packaging stamp</small></span><span class='r'><span class='p'>₹349</span><span class=ctl></span></span></li>
+</ul></div>
+</section>
+<section class='group' data-group='digital'><h2>Digital &amp; website</h2>
+<div class='sub'><h3>Digital &amp; social</h3><p class='intro'>Designs made for screens.</p><ul class='list'>
+<li class='svc' data-s='email signature html or image block matching your print design' data-name='Email Signature' data-price='299'><span class='t'>Email Signature<small>HTML or image block matching your print design</small></span><span class='r'><span class='p'>₹299</span><span class=ctl></span></span></li>
+<li class='svc' data-s='social media post ' data-name='Social Media Post' data-price='199'><span class='t'>Social Media Post</span><span class='r'><span class='p'>₹199</span><span class=ctl></span></span></li>
+<li class='svc' data-s='10 social posts ' data-name='10 Social Posts' data-price='1799'><span class='t'>10 Social Posts</span><span class='r'><span class='p'>₹1,799</span><span class=ctl></span></span></li>
+<li class='svc' data-s='presentation (per slide) ' data-name='Presentation (Per Slide)' data-price='149'><span class='t'>Presentation (Per Slide)</span><span class='r'><span class='p'>₹149</span><span class=ctl></span></span></li>
+<li class='svc' data-s='digital template (word / google docs / powerpoint) ready-to-use files for daily office work' data-name='Digital Template (Word / Google Docs / PowerPoint)' data-price='599'><span class='t'>Digital Template (Word / Google Docs / PowerPoint)<small>Ready-to-use files for daily office work</small></span><span class='r'><span class='p'>₹599</span><span class=ctl></span></span></li>
+<li class='svc' data-s='social profile avatars &amp; cover banners linkedin, x, instagram and youtube' data-name='Social Profile Avatars &amp; Cover Banners' data-price='799'><span class='t'>Social Profile Avatars &amp; Cover Banners<small>LinkedIn, X, Instagram and YouTube</small></span><span class='r'><span class='p'>₹799</span><span class=ctl></span></span></li>
+<li class='svc' data-s='editable social post &amp; carousel templates figma or canva' data-name='Editable Social Post &amp; Carousel Templates' data-price='1499'><span class='t'>Editable Social Post &amp; Carousel Templates<small>Figma or Canva</small></span><span class='r'><span class='p'>₹1,499</span><span class=ctl></span></span></li>
+</ul></div>
+<div class='sub'><h3>Website, app &amp; launch assets</h3><p class='intro'>Everything a product needs on launch day.</p><ul class='list'>
+<li class='svc' data-s='responsive marketing website design plus live build on webflow, framer or wordpress' data-name='Responsive Marketing Website' data-price='14999'><span class='t'>Responsive Marketing Website<small>Design plus live build on Webflow, Framer or WordPress</small></span><span class='r'><span class='p'>From ₹14,999</span><span class=ctl></span></span></li>
+<li class='svc' data-s='website social preview banners opengraph link previews' data-name='Website Social Preview Banners' data-price='499'><span class='t'>Website Social Preview Banners<small>OpenGraph link previews</small></span><span class='r'><span class='p'>₹499</span><span class=ctl></span></span></li>
+<li class='svc' data-s='ui design system / figma library buttons, forms, cards, tokens and grids for developers' data-name='UI Design System / Figma Library' data-price='9999'><span class='t'>UI Design System / Figma Library<small>Buttons, forms, cards, tokens and grids for developers</small></span><span class='r'><span class='p'>From ₹9,999</span><span class=ctl></span></span></li>
+<li class='svc' data-s='empty state, onboarding &amp; 404 illustrations ' data-name='Empty State, Onboarding &amp; 404 Illustrations' data-price='1499'><span class='t'>Empty State, Onboarding &amp; 404 Illustrations</span><span class='r'><span class='p'>₹1,499</span><span class=ctl></span></span></li>
+<li class='svc' data-s='transactional html email templates welcome, password reset, otp and billing receipts' data-name='Transactional HTML Email Templates' data-price='2499'><span class='t'>Transactional HTML Email Templates<small>Welcome, password reset, OTP and billing receipts</small></span><span class='r'><span class='p'>₹2,499</span><span class=ctl></span></span></li>
+<li class='svc' data-s='app store &amp; google play launch kit framed screenshots, feature graphics and promo banners' data-name='App Store &amp; Google Play Launch Kit' data-price='3499'><span class='t'>App Store &amp; Google Play Launch Kit<small>Framed screenshots, feature graphics and promo banners</small></span><span class='r'><span class='p'>₹3,499</span><span class=ctl></span></span></li>
+<li class='svc' data-s='product hunt / launch day media kit gallery images, thumbnail gifs and founder badges' data-name='Product Hunt / Launch Day Media Kit' data-price='2499'><span class='t'>Product Hunt / Launch Day Media Kit<small>Gallery images, thumbnail GIFs and founder badges</small></span><span class='r'><span class='p'>₹2,499</span><span class=ctl></span></span></li>
+</ul></div>
+</section>
+<section class='group' data-group='templates'><h2>Investor, sales &amp; internal templates</h2>
+<div class='sub'><h3>Investor, sales &amp; internal templates</h3><p class='intro'>Documents your team will reuse every week.</p><ul class='list'>
+<li class='svc' data-s='investor pitch deck template google slides, powerpoint or figma' data-name='Investor Pitch Deck Template' data-price='4999'><span class='t'>Investor Pitch Deck Template<small>Google Slides, PowerPoint or Figma</small></span><span class='r'><span class='p'>₹4,999</span><span class=ctl></span></span></li>
+<li class='svc' data-s='sales one-pager / product brochure template ' data-name='Sales One-Pager / Product Brochure Template' data-price='1499'><span class='t'>Sales One-Pager / Product Brochure Template</span><span class='r'><span class='p'>₹1,499</span><span class=ctl></span></span></li>
+<li class='svc' data-s='client proposal &amp; case study template ' data-name='Client Proposal &amp; Case Study Template' data-price='1999'><span class='t'>Client Proposal &amp; Case Study Template</span><span class='r'><span class='p'>₹1,999</span><span class=ctl></span></span></li>
+<li class='svc' data-s='internal hr &amp; team templates notion / confluence headers, offer letter and onboarding deck' data-name='Internal HR &amp; Team Templates' data-price='1999'><span class='t'>Internal HR &amp; Team Templates<small>Notion / Confluence headers, offer letter and onboarding deck</small></span><span class='r'><span class='p'>₹1,999</span><span class=ctl></span></span></li>
+<li class='svc' data-s='virtual meeting backgrounds zoom and google meet' data-name='Virtual Meeting Backgrounds' data-price='399'><span class='t'>Virtual Meeting Backgrounds<small>Zoom and Google Meet</small></span><span class='r'><span class='p'>₹399</span><span class=ctl></span></span></li>
+</ul></div>
+</section>
+<section class='group' data-group='extras'><h2>Add-ons, files &amp; support</h2>
+<div class='sub'><h3>Files &amp; add-ons</h3><p class='intro'>Choose the delivery format that suits how you will use the design.</p><ul class='list'>
+<li class='svc' data-s='print-ready files high-resolution pdf with bleed marks, crop marks and cmyk profile for commercial printers'><span class='t'>Print-Ready Files<small>High-resolution PDF with bleed marks, crop marks and CMYK profile for commercial printers</small></span><span class='r'><span class='p inc'>Included</span></span></li>
+<li class='svc' data-s='editable source files illustrator, indesign or canva originals, so you can update names and phone numbers later' data-name='Editable Source Files' data-price='499'><span class='t'>Editable Source Files<small>Illustrator, InDesign or Canva originals, so you can update names and phone numbers later</small></span><span class='r'><span class='p'>₹499 per design</span><span class=ctl></span></span></li>
+<li class='svc' data-s='extra revision round additional changes beyond the included rounds' data-name='Extra Revision Round' data-price='299'><span class='t'>Extra Revision Round<small>Additional changes beyond the included rounds</small></span><span class='r'><span class='p'>₹299</span><span class=ctl></span></span></li>
+<li class='svc' data-s='mockup presentation your design shown on cards, packaging, signage and screens' data-name='Mockup Presentation' data-price='499'><span class='t'>Mockup Presentation<small>Your design shown on cards, packaging, signage and screens</small></span><span class='r'><span class='p'>₹499</span><span class=ctl></span></span></li>
+<li class='svc' data-s='rush delivery 24 to 48 hour turnaround, subject to scope'><span class='t'>Rush Delivery<small>24 to 48 hour turnaround, subject to scope</small></span><span class='r'><span class='p inc'>+30%</span></span></li>
+</ul></div>
+<div class='sub'><h3>Legal, handover &amp; support</h3><p class='intro'>So you own everything and your team can run with it.</p><ul class='list'>
+<li class='svc' data-s='ip &amp; copyright transfer agreement signed 100% ownership of logos, custom fonts, ui and graphics'><span class='t'>IP &amp; Copyright Transfer Agreement<small>Signed 100% ownership of logos, custom fonts, UI and graphics</small></span><span class='r'><span class='p inc'>Included</span></span></li>
+<li class='svc' data-s='organised source files folder figma, ai, indd, psd and glyphs / fontlab in one cloud folder'><span class='t'>Organised Source Files Folder<small>Figma, AI, INDD, PSD and Glyphs / FontLab in one cloud folder</small></span><span class='r'><span class='p inc'>Included</span></span></li>
+<li class='svc' data-s='stock asset &amp; font licence certificates '><span class='t'>Stock Asset &amp; Font Licence Certificates</span><span class='r'><span class='p inc'>Included</span></span></li>
+<li class='svc' data-s='recorded handoff walkthrough video training for your internal team' data-name='Recorded Handoff Walkthrough' data-price='999'><span class='t'>Recorded Handoff Walkthrough<small>Video training for your internal team</small></span><span class='r'><span class='p'>₹999</span><span class=ctl></span></span></li>
+<li class='svc' data-s='post-launch support 15 days included for minor spacing, bug and print fixes; 30 days' data-name='Post-Launch Support' data-price='1499'><span class='t'>Post-Launch Support<small>15 days included for minor spacing, bug and print fixes; 30 days</small></span><span class='r'><span class='p'>₹1,499</span><span class=ctl></span></span></li>
+</ul></div>
+</section>
+</main>
+<aside id='panel' class='panel' aria-label='Your quote'>
+<div class='ph'><h2><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M8 8h8M8 12h8M8 16h5"/></svg> Your quote</h2><button type='button' id='panel-close' class='close'>Done</button></div>
+<div id='step1' class='step-box'>
+<p id='q-empty'>Nothing added yet. Tap <strong>+ Add</strong> next to any service.</p>
+<ul id='q-list'></ul>
+<div id='q-sum' hidden><div class='tot'><span>Estimated total</span><span id='q-total'></span></div>
+<button type='button' id='q-next' class='cta'>Continue <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
+</div>
+<div id='step2' class='step-box' hidden>
+<button type='button' id='q-back' class='link back'>‹ Back to items</button>
+<p id='q-mini' class='mini'></p>
+<label for='q-name' class='lbl'>What is your brand name?</label>
+<input id='q-name' type='text' maxlength='60' placeholder='e.g. Sunrise Bakery' autocomplete='organization'>
+<label for='q-contact' class='lbl'>WhatsApp number or email <span class='opt'>(optional)</span></label>
+<input id='q-contact' type='text' maxlength='80' placeholder='So we can reply with your final quote' autocomplete='off'>
+<p id='q-share' class='fine' hidden>When you download or send your quote, a copy is also shared with ManO CreationS so we can follow up.</p>
+<p id='q-hint' class='fine'>Enter your brand name to enable sending and downloads.</p>
+<div class='acts'><button type='button' id='q-pdf' class='main dl'>Download PDF</button><button type='button' id='q-img' class='dl'>Download image</button><button type='button' id='q-copy' class='dl'>Copy text</button><button type='button' id='q-clear'>Clear all</button></div>
+</div>
+</aside></div></div>
+<div id='bar' class='mbar' hidden><span id='bar-text'></span><button type='button' id='bar-open'>View quote</button></div>
+<footer>© ManO CreationS</footer>
+<script src="assets/js/site-navigation.js" defer></script>
+<script src="assets/js/pricing.js" defer></script>
 </body></html>
