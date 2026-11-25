@@ -1,4 +1,29 @@
+# robots.txt for manocreations.com
+
 User-agent: *
 Allow: /
-Disallow: /love-permit-payment.html
+
+# AI crawlers: allowed
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# Sitemap (must be a full address, and must match the real sitemap location)
 Sitemap: https://www.manocreations.com/sitemap.xml
