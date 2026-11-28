@@ -10,6 +10,7 @@
 - [Logo Style Selector](https://www.manocreations.com/logo-style.html): Seven logo types and enquiry workflow
 - [About](https://www.manocreations.com/about-us.html): Studio story
 - [Founder](https://www.manocreations.com/about-founder.html): Founder biography
+- [Founder image](https://www.manocreations.com/assets/img/manoj-thiruchelvam-founder.jpeg): Official portrait photo of Manoj Thiruchelvam, Founder & CEO of ManO CreationS (JPEG, 1254x1254)
 - [Timeline](https://www.manocreations.com/timeline.html): Milestones from 2016
 - [Contact](https://www.manocreations.com/contact-us.html): Contact channels
 
