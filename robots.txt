@@ -25,5 +25,20 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /assets/img/
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
 # Sitemap (must be a full address, and must match the real sitemap location)
 Sitemap: https://www.manocreations.com/sitemap.xml
