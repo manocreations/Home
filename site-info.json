@@ -11,6 +11,13 @@
     "Business stationery"
   ],
   "contact_email": "ceo@manocreations.com",
+  "founder": {
+    "name": "Manoj Thiruchelvam",
+    "role": "Founder and CEO",
+    "page": "https://www.manocreations.com/about-founder.html",
+    "image": "https://www.manocreations.com/assets/img/manoj-thiruchelvam-founder.jpeg",
+    "image_alt": "Portrait of Manoj Thiruchelvam, founder and CEO of ManO CreationS"
+  },
   "pages": [
     {
       "title": "Design Services | ManO CreationS",
